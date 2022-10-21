@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>compendios_de_investigacion.knit</title>
+
+<script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/clipboard-2.0.6/clipboard.min.js"></script>
+<link href="site_libs/xaringanExtra-clipboard-0.2.6/xaringanExtra-clipboard.css" rel="stylesheet" />
+<script src="site_libs/xaringanExtra-clipboard-0.2.6/xaringanExtra-clipboard.js"></script>
+<script>window.xaringanExtraClipboard(null, {"button":"<i class=\"fa fa-clipboard\"><\/i>","success":"<i class=\"fa fa-check\" style=\"color: #90BE6D\"><\/i>","error":"<i class=\"fa fa-times-circle\" style=\"color: #F94144\"><\/i>"})</script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<link rel="stylesheet" href="extra.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Ciencia Reproducible</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Manuales
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="compendios_de_investigacion.html">Compendios de investigación</a>
+    </li>
+    <li>
+      <a href="reproducibilidad_en_taxonómica.html">Reproducibilidad en la taxonomía</a>
+    </li>
+    <li>
+      <a href="programacion_y_reproducibilidad.html">Programación y reproducibilidad</a>
+    </li>
+    <li>
+      <a href="intro_a_git_y_github.html">Control de versiones: git y github</a>
+    </li>
+    <li>
+      <a href="escribir_articulos_en_rmarkdown.html">Artículos en Rmarkdown</a>
+    </li>
+    <li>
+      <a href="trampas_estadisticas.html">Trampas estadísticas</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="preparacion_curso.html">Preparación para el curso</a>
+</li>
+<li>
+  <a href="https://codefile.io/f/XOIzH23KfULuZKyZ1TYT">Compartir código</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Tareas
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Tarea 1</li>
+    <li class="dropdown-header">Solución: tarea 1</li>
+    <li class="dropdown-header">Tarea 2</li>
+    <li class="dropdown-header">Solución: tarea 2</li>
+    <li class="dropdown-header">Tarea 3</li>
+    <li class="dropdown-header">Solución: tarea 3</li>
+    <li class="dropdown-header">Tarea 4</li>
+    <li class="dropdown-header">Solución: tarea4</li>
+  </ul>
+</li>
+<li>
+  <a href="https://github.com/maRce10/ciencia_reproducible/raw/master/additional_files/2022-10-14_Probl Esp Ecol_15_Herramientas-Practicas-Para-Ciencia-Reproducible.pdf">Programa del curso</a>
+</li>
+<li>
+  <a href="instructor.html">Instructor</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore"><center>
+<font size="6"><b>Compendios de investigación (en R)</b></font>
+</center></h1>
+<h3 class="subtitle"><center>
+<font size="4"><b>Herramientas prácticas para investigación
+reproducible</b></font>
+</center></h3>
+<h4 class="author"><center>
+<font size="5"><a href="http://marceloarayasalas.weebly.com/">Marcelo
+Araya-Salas, PhD</a></font>
+</center></h4>
+<h4 class="date"><center>
+“2022-10-21”
+</center></h4>
+
+</div>
+
+
+<style>
+body
+  { counter-reset: source-line 0; }
+pre.numberSource code
+  { counter-reset: none; }
+</style>
+<p> </p>
+<p> </p>
+<p>A medida que los análisis de datos científicos aumentan en
+complejidad, también aumentan los desafíos para asegurarse que estos
+análisis sean reproducible. Varias propuestas han surgido para intentar
+solucionar los problemas de reproducibilidad en el análisis
+computacional de datos.</p>
+<p>Lastimosamente esto se complica aún mas con la falta de instrucción
+formal en el manejo y estructuración de datos para análisis que sufren
+(sufrimos) los científicos. Esto hace casi inevitable la poca
+consistencia y hasta el caos en nuestra organización de datos para
+proyectos de investigación. Este es un ejemplo de un proyecto “poco
+estructurado” (por usar un eufemismo):</p>
+<p><img src="images/proy_desorden.png" width="100%" style="display: block; margin: auto;" /></p>
+<p> </p>
+<p>Esta (falta de) “estructura” no es práctica. Lastimosamente, es
+probable que no sea un caso aislado.</p>
+<p>En este tutorial hablaremos sobre algunas de las herramientas que se
+han desarrollado para solventar estos problemas que se han desarrollado
+en R.</p>
+<p> </p>
+<div id="formatos-para-la-estructura-de-carpetas"
+class="section level2">
+<h2>Formatos para la estructura de carpetas</h2>
+<p>Aquí encontrarán una lista corta y para nada exhaustiva de ejemplos
+de estructura de carpetas para proyectos de análisis de datos.</p>
+<p> </p>
+<div id="formato-noble" class="section level3">
+<h3>Formato “Noble”</h3>
+<p>Noble (2009) propone una estructura de datos especifica para datos
+bioinformáticos (aunque podría ser adaptada a otras necesidades):</p>
+<p><img src="images/noble2009.png" width="100%" style="display: block; margin: auto;" />
+ </p>
+<p>Esta estructura, sin embargo, utiliza carpetas con fechas para llevar
+el orden cronológico del análisis, algo que debería ser documentado con
+un sistema de control de versiones (i.e. Git). Por lo que resulta poco
+funcional.</p>
+<p> </p>
+</div>
+<div id="formato-r-dir" class="section level3">
+<h3>Formato R-dir</h3>
+<p>En <a
+href="https://r-dir.com/blog/2013/11/folder-structure-for-data-analysis.html">este
+blog</a> se propone el siguiente formato:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>  analysis_r<span class="sc">-</span>dir<span class="sc">/</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>    <span class="er">|</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a>    ├── code<span class="sc">/</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a>    │   ├── processed       </span>
+<span id="cb1-5"><a href="#cb1-5"></a>    │   └── raw  </span>
+<span id="cb1-6"><a href="#cb1-6"></a>    ├── data<span class="sc">/</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a>    │   ├── raw<span class="sc">/</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a>    │   └── clean<span class="sc">/</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a>    ├── figures<span class="sc">/</span>            </span>
+<span id="cb1-10"><a href="#cb1-10"></a>    │   ├── exploratory       </span>
+<span id="cb1-11"><a href="#cb1-11"></a>    │   └── final  </span>
+<span id="cb1-12"><a href="#cb1-12"></a>    └── text<span class="sc">/</span></span>
+<span id="cb1-13"><a href="#cb1-13"></a>        ├── final</span>
+<span id="cb1-14"><a href="#cb1-14"></a>        └── notes</span></code></pre></div>
+<p> </p>
+<p>Las principales carpetas incluyen:</p>
+<ul>
+<li><p><em>code</em>: contiene todos los scripts de R (u otros
+lenguajes); los crudos (?) van en “./code/raw” y los procesados en
+“./processed/clean”</p></li>
+<li><p><em>data</em>: cualquier tipo de datos, los crudos van en
+“./data/raw” y los procesados en “./data/clean”</p></li>
+<li><p><em>figures</em>: las figuras exploratorias van en
+“./figures/exploratory” y las definitivas en “./figures/final”</p></li>
+</ul>
+<p>Este formato puede ser copiado (o clonado) de <a
+href="https://github.com/lenwood/analysis-project">su repositorio de
+github</a>.</p>
+<p>Las estructura propuesta es similar a otras que encontramos en la
+web. Las variaciones dependen un poco del tipo de datos y el formato de
+los resultado obtenidos (i.e. imágenes vs arboles filogéneticos).</p>
+<p> </p>
+</div>
+<div id="formato-moldach" class="section level3">
+<h3>Formato “Moldach”</h3>
+<p>Este formato es muy similar al anterior, y se incluye principalmente
+para resaltar los factores comunes entre los diferentes formatos
+propuestos:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>nombre_del_proyecto</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="sc">|--</span>data</span>
+<span id="cb2-3"><a href="#cb2-3"></a>    <span class="sc">|--</span>raw</span>
+<span id="cb2-4"><a href="#cb2-4"></a>        <span class="sc">|--</span>file_001.xlsx</span>
+<span id="cb2-5"><a href="#cb2-5"></a>        <span class="sc">|--</span>file_002.gen</span>
+<span id="cb2-6"><a href="#cb2-6"></a>        <span class="sc">|--</span>file_002.sample</span>
+<span id="cb2-7"><a href="#cb2-7"></a>    <span class="sc">|--</span>tidy</span>
+<span id="cb2-8"><a href="#cb2-8"></a>        <span class="sc">|--</span>file_001<span class="sc">-</span>cleaned.csv</span>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="sc">|--</span>refs</span>
+<span id="cb2-10"><a href="#cb2-10"></a>    <span class="sc">|--</span>Oldach_2018.pdf</span>
+<span id="cb2-11"><a href="#cb2-11"></a><span class="sc">|--</span>analysis</span>
+<span id="cb2-12"><a href="#cb2-12"></a>    <span class="sc">|--</span><span class="dv">01</span><span class="sc">-</span>analysis.Rmd</span>
+<span id="cb2-13"><a href="#cb2-13"></a><span class="sc">|--</span>figures</span>
+<span id="cb2-14"><a href="#cb2-14"></a>    <span class="sc">|--</span><span class="dv">01</span><span class="sc">-</span>scatterplot.jpg</span>
+<span id="cb2-15"><a href="#cb2-15"></a>    <span class="sc">|--</span><span class="dv">01</span><span class="sc">-</span>correlation.png</span>
+<span id="cb2-16"><a href="#cb2-16"></a><span class="sc">|--</span>R</span>
+<span id="cb2-17"><a href="#cb2-17"></a>    <span class="sc">|--</span>exploratory_analysis.R</span>
+<span id="cb2-18"><a href="#cb2-18"></a>    <span class="sc">|--</span>pdf_scraper.R</span>
+<span id="cb2-19"><a href="#cb2-19"></a><span class="sc">|--</span>name_of_project.Rproj</span>
+<span id="cb2-20"><a href="#cb2-20"></a><span class="sc">|--</span>run_all.R</span></code></pre></div>
+<p> </p>
+<p>Las principales diferencias con el formato “r-dir” son el uso de una
+carpeta de referencias y el código para compilar el compendio en el
+directorio raíz.</p>
+<p>El formato se describe en detalle en <a
+href="https://towardsdatascience.com/the-gold-standard-of-data-science-project-management-13d68c9e85d6">este
+blog</a> y puede ser clonado de su <a
+href="https://github.com/moldach/project-directory">repositorio de
+github</a>.</p>
+<p> </p>
+</div>
+</div>
+<div id="paquetes-de-r-como-plantilla-para-compendios"
+class="section level2 alert alert-success">
+<h2>Paquetes de R como plantilla para compendios</h2>
+<p></br></p>
+<p>Algunas de estas herramientas disponibles en paquetes de R utilizan
+la estructura de carpetas e integración continua propia de estos
+paquetes (Marwick et al. 2018; Vourre &amp; Crump 2020). Uno de estos es
+el paquete <code>vertical</code> (Vourre &amp; Crump 2020). Sus autores
+proponen varias ventajas de utilizar este formato para compartir una
+productos de investigación (desde guiones de experimentos hasta
+artículos, presentaciones y carteles):</p>
+<p></br></p>
+<ul>
+<li><p>Los paquetes de R tienen una estructura de archivos estandarizada
+y bien organizada que es útil para fines organizativos</p></li>
+<li><p>Los investigadores a menudo desarrollan funciones personalizadas
+para el análisis, y ponerlas en un paquete de R facilita compartir las
+funciones</p></li>
+<li><p>Los paquetes R pueden incluir datos de un proyecto de
+investigación y proveen una forma natural de documentar los datos
+utilizando los mismos esquemas para documentar funciones de R</p></li>
+<li><p>Los paquetes de R incluyen varios documentos a través de la
+carpeta de viñetas, que en principio podrían incluir varios formatos
+para comunicar la investigación, como un manuscrito o un conjunto de
+diapositivas escrito en R Markdown</p></li>
+<li><p>Los paquetes R se pueden convertir automáticamente en sitios web
+a través de <code>pkgdown</code>, lo que proporciona un formato
+atractivo para compartir materiales relacionados a la
+investigación</p></li>
+</ul>
+<p></br></p>
+<p>Sin embargo el uso de este formato puede generar mas problemas de los
+que ayuda a resolver. Aquí enumero algunas de las incongruencias:</p>
+<p></br></p>
+<ul>
+<li><p>Las funciones deberían usarse una vez o en un solo punto en el
+flujo de análisis, entonces, ¿para que compilarlas y documentarlas con
+tanto detalle?</p></li>
+<li><p>Documentar paquetes y las funciones dentro de estos es
+complejo</p></li>
+<li><p>DESCRIPTION duplica esfuerzo e información de README y demanda un
+mayor conocimiento de formato y convenciones específicas de paquetes de
+R</p></li>
+<li><p>Hacer datos disponibles al cargar el ambiente no provee ventajas
+y hace los datos menos accesibles fuera de R (i.e. no se gana nada
+usando <code>data("base_de_datos")</code> en vez de
+<code>read.csv("base_de_datos.csv")</code>)</p></li>
+<li><p>Los paquetes son para compartir herramientas que se usen
+repetidas veces. La reproducción de un análisis de datos se da una o
+pocas veces</p></li>
+<li><p>Los paquetes de R tienen carpetas que no tienen funcionalidad en
+análisis de datos (“man”, “vignettes”, “inst”)</p></li>
+<li><p>El integrar los componentes de un paquete (necesario para poder
+usar integración continua) requiere de otros archivos con estructuras y
+convenciones complejas que implican una curva de aprendizaje
+innecesariamente empinada</p></li>
+</ul>
+<p>Para una discusión mas detallada de los problemas asociados con el
+uso de paquetes como plantillas les recomendamos leer <a
+href="https://milesmcbain.xyz/posts/an-okay-idea">este post (McBrain
+2020)</a>.</p>
+</div>
+<p> </p>
+<hr />
+<div id="paquetes-de-r-para-generación-de-compendios"
+class="section level2">
+<h2>Paquetes de R para generación de compendios</h2>
+<div id="vertical" class="section level3">
+<h3>vertical</h3>
+<p>El paquete <code>vertical</code> provee un flujo de trabajo
+estructurado basado en la estructura de carpetas e integración continua
+de los paquetes de R para crear y compartir materiales y recursos de
+investigación como un paquete de R (Matthew et al. 2020). El paquete se
+puede instalar y/o cargar desde github así (aún no está en CRAN(?)):</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># install.packages(&#39;devtools&#39;)</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a></span>
+<span id="cb3-3"><a href="#cb3-3"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;CrumpLab/vertical&quot;</span>)</span>
+<span id="cb3-4"><a href="#cb3-4"></a></span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="fu">library</span>(vertical)</span></code></pre></div>
+<p> </p>
+<p>También necesitarán otros paquetes si desean hacer uso de
+funcionalidades como escribir artículos y generar presentaciones:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># instalar papaja</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;crsh/papaja&quot;</span>)</span>
+<span id="cb4-3"><a href="#cb4-3"></a></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="fu">install.packages</span>(<span class="st">&quot;tinytex&quot;</span>)</span>
+<span id="cb4-5"><a href="#cb4-5"></a>tinytex<span class="sc">::</span><span class="fu">tlmgr_update</span>()</span>
+<span id="cb4-6"><a href="#cb4-6"></a></span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="co"># si no puede generar los articulos trate esto como ultima</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a><span class="co"># opcion update.packages(ask = FALSE, checkBuilt = TRUE)</span></span></code></pre></div>
+<p> </p>
+<div id="flujo-de-trabajo-de-vertical" class="section level4">
+<h4>flujo de trabajo de ‘vertical’</h4>
+<p>La instalación del paquete <code>vertical</code> agrega una nueva
+plantilla de proyecto a RStudio (RStudio debe reiniciarse después de
+instalar<code>vertical</code> para que reconozca la plantilla). Los
+usuarios pueden iniciar un nuevo proyecto “vertical” desde RStudio
+eligiendo la opción al crear un nuevo proyecto. Por defecto, un proyecto
+“vertical” se estructura de la siguiente manera:</p>
+<p><img src="images/vertical-project.png" width="100%" style="display: block; margin: auto;" /></p>
+<p> </p>
+<p>El nuevo proyecto contiene un esqueleto más complejo que el de un
+paquete de R:</p>
+<ul>
+<li>Carpetas para datos sin procesar, datos y viñetas</li>
+<li>Un archivo <code>_pkgdown.yml</code> para controlar los parámetros
+del sitio web cuando se procesa con <code>pkgdown</code></li>
+<li>Carpetas adicionales para los productos del proyecto de
+investigación como “experimentos”, “manuscrito”, “modelo”, “carteles” y
+“diapositivas”.</li>
+</ul>
+<p>De forma predeterminada, <code>vertical</code> incluye plantillas de
+R Markdown de otros paquetes dentro de cada carpeta para crear cada tipo
+de contenido. Como resultado, <code>vertical</code> sugiere usar R como
+una fuente de soluciones de plataforma única para la creación de
+productos de investigación.</p>
+</div>
+<div id="crear-un-proyecto-vertical" class="section level4">
+<h4>Crear un proyecto ‘vertical’</h4>
+<p>Luego de instalar <code>vertical</code> reinicie RStudio, luego siga
+estos pasos para iniciar un nuevo proyecto <code>vertical</code>. Cuando
+elija un nombre, debe ser <a
+href="http://r-pkgs.had.co.nz/package.html#naming">un nombre de un
+paquete de R válido</a>. Por ejemplo, el nombre debe contener letras,
+números o puntos (por ejemplo, mi.nombre), pero sin puntos al final.
+Esto significa que no hay espacios, guiones ni guiones bajos.</p>
+<p><img src="images/vertical-new.png" width="50%" style="display: block; margin: auto;" /></p>
+<p> </p>
+<p>También puede crear un proyecto ‘vertical’ desde la consola, consulte
+la documentación de <code>vertical_project()</code> para más opciones.
+Esto carga la ventana de plantillas de proyectos de R desde la
+consola:</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>vertical<span class="sc">::</span><span class="fu">vertical_project</span>()</span></code></pre></div>
+<p> </p>
+<p>Esta es la estructura de carpetas que genera:</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>  compendio_vertical<span class="sc">/</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a>    <span class="er">|</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a>    ├── data_raw<span class="sc">/</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a>    ├── manuscripts<span class="sc">/</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a>    │   ├── manuscript.Rmd       </span>
+<span id="cb6-6"><a href="#cb6-6"></a>    │   └── r<span class="sc">-</span>references.bib  </span>
+<span id="cb6-7"><a href="#cb6-7"></a>    ├── posters<span class="sc">/</span>            </span>
+<span id="cb6-8"><a href="#cb6-8"></a>    ├── R<span class="sc">/</span>            </span>
+<span id="cb6-9"><a href="#cb6-9"></a>    ├── slides<span class="sc">/</span>            </span>
+<span id="cb6-10"><a href="#cb6-10"></a>    └── vignettes<span class="sc">/</span>            </span></code></pre></div>
+<p> </p>
+<p></br></p>
+<div class="alert alert-info">
+<p></br></p>
+<p><font size="5">Ejercicio 1</font></p>
+<p>1.1 Cree compendio usando <code>vertical</code></p>
+<p></br></p>
+<p>1.2 Modifique el archivo R markdown en ‘./manuscripts/’ y genere
+nuevamente el HTML</p>
+<p></br></p>
+</div>
+<p> </p>
+</div>
+</div>
+<div id="rrtools" class="section level3">
+<h3>rrtools</h3>
+<p>El objetivo de <code>rrtools</code> es “proporcionar instrucciones,
+plantillas y funciones para crear un compendio básico adecuado para
+escribir un artículos o informes reproducibles en R” (Marwick 2019).
+Este paquete documenta los pasos clave y proporciona funciones útiles
+para crear rápidamente un nuevo compendio de investigación.</p>
+<p><code>rrtools</code> brinda una plantilla para la escritura académica
+utilizando R Markdown y <code>bookdown</code>. También permite el
+aislamiento de su entorno computacional mediante <code>Docker</code>, el
+control de versiones de paquetes mediante <code>MRAN</code> y la
+integración continua mediante <code>Travis</code>:</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;benmarwick/rrtools&quot;</span>)</span>
+<span id="cb7-2"><a href="#cb7-2"></a></span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="fu">library</span>(rrtools)</span></code></pre></div>
+<p> </p>
+<p>Podemos iniciar un compendio con <code>rrtools</code> así (no lo
+corran si están dentro de un proyecto de Rstudio):</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>rrtools<span class="sc">::</span><span class="fu">use_compendium</span>(<span class="st">&quot;nombre.del.paquete&quot;</span>)</span></code></pre></div>
+<p> </p>
+<p>Deben actualizar el archivo DESCRIPTION (ubicado en el directorio del
+compendio) para incluir metadatos precisos. Por ejemplo, la sección
+‘imports’debe tener los nombres de los paquetes utilizados en los
+códigos en nuestro compendio (i.e. ’Imports: warbleR, baRulho,
+NatureSounds’).</p>
+<p>Podemos agregar una licencia al compendio de esta forma:</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>rrtools<span class="sc">::</span><span class="fu">create_compendium</span>(<span class="st">&quot;nombre.del.paquete&quot;</span>)</span></code></pre></div>
+<p> </p>
+<p>Esto añade la licencia a DESCRIPTION y genera un archivo LICENCE con
+los detalles de la licencia. Por defecto utiliza la licencia de MIT
+aunque otras licencias pueden ser definidas.</p>
+<p>A diferencia de <code>vertical</code>, <code>rrtools</code> no genera
+todas las carpetas básicas necesarias para un compendio. Podemos crear
+estas carpetas de esta forma:</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>rrtools<span class="sc">::</span><span class="fu">use_analysis</span>()</span></code></pre></div>
+<p> </p>
+<p>Esto genera la carpeta “./analysis” con la siguiente estructura:</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>  analysis<span class="sc">/</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a>    <span class="er">|</span></span>
+<span id="cb11-3"><a href="#cb11-3"></a>    ├── paper<span class="sc">/</span></span>
+<span id="cb11-4"><a href="#cb11-4"></a>    │   ├── paper.Rmd       <span class="co"># documento para generar el articulo</span></span>
+<span id="cb11-5"><a href="#cb11-5"></a>    │   └── references.bib  <span class="co"># referencias en formato bibtex</span></span>
+<span id="cb11-6"><a href="#cb11-6"></a>    ├── figures<span class="sc">/</span>            <span class="co"># figuras producidas por el rmarkdown</span></span>
+<span id="cb11-7"><a href="#cb11-7"></a>    <span class="er">|</span></span>
+<span id="cb11-8"><a href="#cb11-8"></a>    ├── data<span class="sc">/</span></span>
+<span id="cb11-9"><a href="#cb11-9"></a>    │   ├── raw_data<span class="sc">/</span>       <span class="co"># datos crudos (originales)</span></span>
+<span id="cb11-10"><a href="#cb11-10"></a>    │   └── derived_data<span class="sc">/</span>   <span class="co"># datos procesados</span></span>
+<span id="cb11-11"><a href="#cb11-11"></a>    <span class="er">|</span></span>
+<span id="cb11-12"><a href="#cb11-12"></a>    └── templates</span>
+<span id="cb11-13"><a href="#cb11-13"></a>        ├── journal<span class="sc">-</span>of<span class="sc">-</span>archaeological<span class="sc">-</span>science.csl <span class="co"># estilo de citas</span></span>
+<span id="cb11-14"><a href="#cb11-14"></a>        <span class="sc">|</span>                   </span>
+<span id="cb11-15"><a href="#cb11-15"></a>        ├── template.docx   <span class="co"># plantilla de articulo generado</span></span>
+<span id="cb11-16"><a href="#cb11-16"></a>        └── template.Rmd    <span class="co"># plantilla para rmd de articulo</span></span></code></pre></div>
+<p> </p>
+<p>EL archivo README.Rmd se puede crear asi:</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>rrtools<span class="sc">::</span><span class="fu">use_readme_rmd</span>()</span></code></pre></div>
+<p> </p>
+<p>EL README generado incluye una plantilla que muestra cómo citar su
+proyecto (debe ser editado para incluir el título y el DOI correctos).
+También contiene información de la licencia, las figuras, el código y
+los datos de su compendio.</p>
+<p>Esta función también agrega otros dos archivos Rmd: un código de
+conducta para los usuarios (CONDUCT.md) y otro con instrucciones básicas
+para las personas que desean contribuir a su proyecto
+(CONTRIBUTING.md).</p>
+<p>Además ofrece funciones como <code>rrtools::use_dockerfile()</code> y
+<code>rrtools::use_travis()</code> para facilitar la integración
+continua. Visite <a href="https://github.com/benmarwick/rrtools">el
+repositorio de github del paquete</a> para mas detalle.</p>
+<p> </p>
+</div>
+<div id="workflowr" class="section level3">
+<h3>workflowr</h3>
+<p>El paquete <code>workflowr</code> intenta ayudar a los investigadores
+a “organizar sus análisis de una manera que promueve la gestión eficaz
+del proyecto, la reproducibilidad, la colaboración y el intercambio de
+resultados” (Blischak et al. 2019). <code>workflowr</code> combina
+programación literaria (<code>knitr</code> y <code>rmarkdown</code>) y
+control de versiones (Git, a través de <code>git2r</code>) para generar
+un sitio web que contiene resultados documentados, y ‘versionados’.</p>
+<p>A diferencia de <code>rrtools</code> y <code>vertical</code>,
+<code>workflowr</code> no emula la estructura de carpetas de los
+paquetes de R, lo cual simplifica su uso y hace mas intuitiva su
+estructura desde el punto de vista del investigador.</p>
+<p>Estas son algunas de las características del paquete que se detallan
+en su <a href="https://jdblischak.github.io/workflowr">sitio de
+github</a>:</p>
+<ul>
+<li><strong>Organizado</strong>
+<ul>
+<li>Proporciona una plantilla de proyecto con subdirectorios
+organizados</li>
+<li>Mezcla código y resultados con R Markdown</li>
+<li>Utiliza Git para versionar tanto el código fuente como los
+resultados</li>
+</ul></li>
+<li><strong>Reproducible</strong>
+<ul>
+<li>Muestra la versión del código utilizada para crear cada
+resultado</li>
+<li>Ejecuta cada análisis en una sesión de R aislada</li>
+<li>Registra la información de la sesión de cada análisis</li>
+<li>Establece la misma semilla (“seed”) para la generación de números
+aleatorios para cada análisis</li>
+</ul></li>
+<li><strong>Compartible</strong>
+<ul>
+<li>Crea un sitio web para presentar los resultados de su
+investigación</li>
+<li>Documenta cómo alojar su sitio web de forma gratuita a través de
+GitHub Pages o GitLab Pages</li>
+<li>Crea vínculos a versiones anteriores de resultados</li>
+</ul></li>
+</ul>
+<p> </p>
+<p>El paquete lo podemos instalar así:</p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;workflowr&quot;</span>)</span>
+<span id="cb13-2"><a href="#cb13-2"></a></span>
+<span id="cb13-3"><a href="#cb13-3"></a><span class="fu">library</span>(workflowr)</span></code></pre></div>
+<p> </p>
+<p>Para crear un proyecto con <code>workflowr</code> primero debemos
+configurar git con la función <code>wflow_git_config()</code> y luego lo
+iniciamos con <code>wflow_start()</code>:</p>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># Configurar Git</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="fu">wflow_git_config</span>(<span class="at">user.name =</span> <span class="st">&quot;nombre completo&quot;</span>, <span class="at">user.email =</span> <span class="st">&quot;correo@dominio&quot;</span>)</span>
+<span id="cb14-3"><a href="#cb14-3"></a></span>
+<span id="cb14-4"><a href="#cb14-4"></a><span class="co"># Empezar un proyecto</span></span>
+<span id="cb14-5"><a href="#cb14-5"></a><span class="fu">wflow_start</span>(<span class="st">&quot;mi_compendio&quot;</span>)</span></code></pre></div>
+<p> </p>
+<p>Esta es la estructura de las carpetas en el compendio de
+‘workflowr’:</p>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>mi_compendio<span class="sc">/</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a>├── .gitignore</span>
+<span id="cb15-3"><a href="#cb15-3"></a>├── .Rprofile</span>
+<span id="cb15-4"><a href="#cb15-4"></a>├── _workflowr.yml</span>
+<span id="cb15-5"><a href="#cb15-5"></a>├── analysis<span class="sc">/</span></span>
+<span id="cb15-6"><a href="#cb15-6"></a>│   ├── about.Rmd</span>
+<span id="cb15-7"><a href="#cb15-7"></a>│   ├── index.Rmd</span>
+<span id="cb15-8"><a href="#cb15-8"></a>│   ├── license.Rmd</span>
+<span id="cb15-9"><a href="#cb15-9"></a>│   └── _site.yml</span>
+<span id="cb15-10"><a href="#cb15-10"></a>├── code<span class="sc">/</span></span>
+<span id="cb15-11"><a href="#cb15-11"></a>│   ├── README.md</span>
+<span id="cb15-12"><a href="#cb15-12"></a>├── data<span class="sc">/</span></span>
+<span id="cb15-13"><a href="#cb15-13"></a>│   └── README.md</span>
+<span id="cb15-14"><a href="#cb15-14"></a>├── docs<span class="sc">/</span></span>
+<span id="cb15-15"><a href="#cb15-15"></a>├── myproject.Rproj</span>
+<span id="cb15-16"><a href="#cb15-16"></a>├── output<span class="sc">/</span></span>
+<span id="cb15-17"><a href="#cb15-17"></a>│   └── README.md</span>
+<span id="cb15-18"><a href="#cb15-18"></a>└── README.md</span></code></pre></div>
+<p> </p>
+<p>Y con este código podemos compilar el sitio del compendio:</p>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">wflow_build</span>()</span></code></pre></div>
+<p>Este comando ‘teje’ todos los archivos de R Markdown en la carpeta
+‘./analysis’ y guarda los archivos HTML correspondientes en ‘./docs’.
+Cada archivo se crea en su propia sesión R externa para evitar posibles
+conflictos entre análisis (este es el comportamiento por defecto de
+archivos Rmd). Ademas abre la copia local del sitio del compendio en el
+navegador de internet. También podemos darle un vistazo a la copia local
+del sitio así:</p>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># ver sitio del compendio</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a><span class="fu">wflow_view</span>()</span></code></pre></div>
+<p> </p>
+<p><code>workflowr</code> distingue entre los archivos R Markdown que se
+publican y los que no se publican. Un archivo publicado se incluye en el
+sitio web en línea; mientras que el archivo HTML de un archivo R
+Markdown no publicado solo se puede ver en la computadora local. Dado
+que el proyecto recién se inició, no hay archivos publicados. Para ver
+el estado del proyecto de <code>workflowr</code>, debemos usar
+<code>wflow_status()</code>:</p>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="co"># revisar estado actual</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a><span class="fu">wflow_status</span>()</span></code></pre></div>
+<p> </p>
+<p>Si queremos hacer los HTMLs públicos, debemos usar la función
+<code>wflow_publish()</code> y proveer los nombres de los R markdowns
+que los generan con el argumento files. Además debemos agregar un
+mensaje para el ‘commit’ que acompaña los cambios generados cuando se
+sincroniza con la copia remota:</p>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="co"># publicar rmds</span></span>
+<span id="cb19-2"><a href="#cb19-2"></a><span class="fu">wflow_publish</span>(<span class="at">files =</span> <span class="fu">c</span>(<span class="st">&quot;analysis/index.Rmd&quot;</span>, <span class="st">&quot;analysis/about.Rmd&quot;</span>,</span>
+<span id="cb19-3"><a href="#cb19-3"></a>    <span class="st">&quot;analysis/license.Rmd&quot;</span>), <span class="at">message =</span> <span class="st">&quot;mi primer commit del compendio&quot;</span>)</span></code></pre></div>
+<p> </p>
+<p>En este punto hemos creado un sitio web con control de versiones que
+existe localmente. El siguiente paso es ponerlo en un repositorio en
+linea (i.e. GitHub o GitLab). Para subir y/o sincronizar el compendio
+(incluyendo el sitio web) a github usamos la función
+<code>wflow_use_github()</code>. El único argumento que requiere es el
+nombre de usuario:</p>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="fu">wflow_use_github</span>(<span class="st">&quot;mi_compendio&quot;</span>)</span></code></pre></div>
+<p> </p>
+<p>El tutorial <a
+href="https://jdblischak.github.io/workflowr/articles/wflow-01-getting-started.html#the-workflow">“getting
+started”</a> de <code>workflowr</code> provee mas detalles de cada uno
+de los pasos para generar compendios con este paquete. La documentación
+es bastante completa, incluyendo varios otros tutoriales para
+personalizar los compendios y sus sitios web. [Aquí podemos encontrar la
+lista de tutoriales](<a
+href="https://jdblischak.github.io/workflowr/articles/index.html"
+class="uri">https://jdblischak.github.io/workflowr/articles/index.html</a>.</p>
+<p></br></p>
+<div class="alert alert-info">
+<p><font size="5">Ejercicio 2</font></p>
+<p></br></p>
+<p>2.1 Cree un compendio usando <code>workflowr</code></p>
+<p></br></p>
+<p>2.2 Cree el sitio del compendio</p>
+<p></br></p>
+</div>
+<p> </p>
+</div>
+<div id="sketchy" class="section level3">
+<h3>sketchy</h3>
+<p>Este es un paquete que estamos desarollando recientemente. Por el
+momento solo permite crear la estructura de carpetas y generar un
+Rmarkdown para escribir el artículo. Tambien permite visualizar la
+estructura del compendio en la consola. La principal diferencia con los
+otros paquetes es que no se casa con una sola estructura; provee varias
+estructuras alternativas y también permite al usuario generar sus
+propios formatos.</p>
+<p>Para usarlo debemos primero instalarlo desde <a
+href="github.com/">github</a> así:</p>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="co"># From github</span></span>
+<span id="cb21-2"><a href="#cb21-2"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;maRce10/sketchy&quot;</span>)</span>
+<span id="cb21-3"><a href="#cb21-3"></a></span>
+<span id="cb21-4"><a href="#cb21-4"></a><span class="co"># load package</span></span>
+<span id="cb21-5"><a href="#cb21-5"></a><span class="fu">library</span>(sketchy)</span></code></pre></div>
+<p>El paquete viene con 13 estructuras de carpetas.Se pueden usar con la
+función <code>compendium_skeleton()</code>. La función crea las
+carpetas/subcarpetas e imprime un diagrama del compendio en la
+consola:</p>
+</div>
+<div id="compendio-básico" class="section level3">
+<h3>Compendio básico</h3>
+<div class="sourceCode" id="cb22"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>path <span class="ot">=</span> <span class="fu">tempdir</span>()</span>
+<span id="cb22-2"><a href="#cb22-2"></a></span>
+<span id="cb22-3"><a href="#cb22-3"></a><span class="fu">make_compendium</span>(<span class="at">name =</span> <span class="st">&quot;proyect_x&quot;</span>, <span class="at">path =</span> path, <span class="at">format =</span> compendiums<span class="sc">$</span>basic<span class="sc">$</span>skeleton)</span></code></pre></div>
+<p><img src="images/compendium_1.png" width="55%" style="display: block; margin: auto auto auto 0;" /></p>
+<p> </p>
+<p>(<em>en el ejemplo se usa un directorio temporal pero este debe ser
+cambiado al directorio donde se quiere crear el compendio</em>)</p>
+</div>
+<div id="formatos-alternativos" class="section level3">
+<h3>Formatos alternativos</h3>
+<p>Podemos usar formatos de otras fuentes. En este caso usamos el de
+Wilson <em>et al.</em> (2017):</p>
+<div class="sourceCode" id="cb23"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="fu">make_compendium</span>(<span class="at">name =</span> <span class="st">&quot;proyect_y&quot;</span>, <span class="at">path =</span> path, <span class="at">format =</span> compendiums<span class="sc">$</span>wilson<span class="sc">$</span>skeleton)</span></code></pre></div>
+<p><img src="images/compendium_2.png" width="55%" style="display: block; margin: auto auto auto 0;" /></p>
+<p> </p>
+<p>También podemos añadir comentarios para explicar los contenidos de
+cada carpeta:</p>
+<div class="sourceCode" id="cb24"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="fu">make_compendium</span>(<span class="at">name =</span> <span class="st">&quot;proyect_z&quot;</span>, <span class="at">path =</span> path, <span class="at">format =</span> compendiums<span class="sc">$</span>large_compendium<span class="sc">$</span>skeleton,</span>
+<span id="cb24-2"><a href="#cb24-2"></a>    <span class="at">comments =</span> compendiums<span class="sc">$</span>large_compendium<span class="sc">$</span>comments)</span></code></pre></div>
+<p><img src="images/compendium_3.png" width="55%" style="display: block; margin: auto auto auto 0;" /></p>
+<p> </p>
+<p>Cuando se crea un compendio que incluye una carpeta llamada
+“manuscript” el paquete añade automáticamente el archivo
+“manuscript_template.Rmd” que puede ser usado para escribir el artículo
+del proyecto.</p>
+<p>La idea es incluir funciones para identificar archivos grandes que no
+pueden ser subidos a <a href="www.github.com/">github</a> y poder
+subirlos a otros repositorios (i.e. figshare o zenodo).</p>
+<p></br></p>
+<div class="alert alert-info">
+<p><font size="5">Ejercicio 3</font></p>
+<p></br></p>
+<p>3.1 Cree un compendio con una estructura personalizada usando
+<code>sketchy</code></p>
+<p></br></p>
+<p>3.2 Añada comentarios a cada carpeta</p>
+<p></br></p>
+</div>
+<p> </p>
+<hr />
+</div>
+</div>
+<div id="referencias" class="section level2">
+<h2>Referencias</h2>
+<ul>
+<li>Araya-Salas, M., Willink, B., Arriaga, A. (2020), <em>sketchy:
+research compendiums for data analysis in R</em>. R package version
+1.0.0.</li>
+<li>Aust, F. &amp; Barth, M. (2020). papaja: Prepare reproducible APA
+journal articles with R Markdown. R package version 0.1.0.9997. <a
+href="https://github.com/crsh/papaja"
+class="uri">https://github.com/crsh/papaja</a></li>
+<li>Blischak JD, Carbonetto P and Stephens M. Creating and sharing
+reproducible research code the workflowr way [version 1; peer review: 3
+approved]. F1000Research 2019, 8:1749. (<a
+href="https://doi.org/10.12688/f1000research.20843.1"
+class="uri">https://doi.org/10.12688/f1000research.20843.1</a>)</li>
+<li>McBain (2020). Before I Sleep: Project as an R package: An okay
+idea. <a
+href="https://milesmcbain.com/posts/an-okay-idea/">https://milesmcbain.com/posts/an-okay-idea/</a></li>
+<li>Ben Marwick (2019). rrtools: Creates a Reproducible Research
+Compendium. R package version 0.1.0. <a
+href="https://github.com/benmarwick/rrtools"
+class="uri">https://github.com/benmarwick/rrtools</a></li>
+<li>Noble WS (2009) A Quick Guide to Organizing Computational Biology
+Projects. PLoS Comput Biol 5(7): e1000424. <a
+href="https://doi.org/10.1371/journal.pcbi.1000424"
+class="uri">https://doi.org/10.1371/journal.pcbi.1000424</a></li>
+<li>Marwick, B., Boettiger, C., &amp; Mullen, L. (2018). Packaging Data
+Analytical Work Reproducibly Using R (and Friends). American
+Statistician, 72(1), 80–88.</li>
+<li>Matthew J. C. Crump and Matti Vuorre (2020). vertical: Reproducible
+worfklow for psychological science research asset creation and
+communication. R package version 0.1.0.0000. <a
+href="https://github.com/CrumpLab/vertical"
+class="uri">https://github.com/CrumpLab/vertical</a></li>
+<li>Vuorre, M., &amp; Crump, M. J. C. (2020). Sharing and organizing
+research products as R packages. Behavior Research Methods, 1–11.</li>
+<li>Wilson G, Bryan J, Cranston K, Kitzes J, Nederbragt L, et al. (2017)
+Good enough practices in scientific computing. PLOS Computational
+Biology 13(6): e1005510.</li>
+</ul>
+<hr />
+<p><font size="4">Session information</font></p>
+<pre><code>## R version 4.1.0 (2021-05-18)
+## Platform: x86_64-pc-linux-gnu (64-bit)
+## Running under: Ubuntu 20.04.2 LTS
+## 
+## Matrix products: default
+## BLAS:   /usr/lib/x86_64-linux-gnu/atlas/libblas.so.3.10.3
+## LAPACK: /usr/lib/x86_64-linux-gnu/atlas/liblapack.so.3.10.3
+## 
+## locale:
+##  [1] LC_CTYPE=pt_BR.UTF-8       LC_NUMERIC=C              
+##  [3] LC_TIME=es_CR.UTF-8        LC_COLLATE=pt_BR.UTF-8    
+##  [5] LC_MONETARY=es_CR.UTF-8    LC_MESSAGES=pt_BR.UTF-8   
+##  [7] LC_PAPER=es_CR.UTF-8       LC_NAME=C                 
+##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+## [11] LC_MEASUREMENT=es_CR.UTF-8 LC_IDENTIFICATION=C       
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## other attached packages:
+## [1] xaringanExtra_0.7.0 emo_0.0.0.9000      sketchy_1.0.2      
+## [4] papaja_0.1.1        tinylabels_0.2.3    rrtools_0.1.5      
+## [7] vertical_0.1.0.0000 workflowr_1.7.0     knitr_1.39         
+## 
+## loaded via a namespace (and not attached):
+##  [1] httr_1.4.2         sass_0.4.0         pkgload_1.2.1      jsonlite_1.8.0    
+##  [5] splines_4.1.0      here_1.0.1         bslib_0.2.5.1      assertthat_0.2.1  
+##  [9] datawizard_0.6.0   getPass_0.2-2      highr_0.9          yaml_2.3.5        
+## [13] remotes_2.4.0      bayestestR_0.13.0  sessioninfo_1.1.1  pillar_1.8.0      
+## [17] lattice_0.20-44    glue_1.6.2         uuid_0.1-4         digest_0.6.29     
+## [21] promises_1.2.0.1   sandwich_3.0-1     htmltools_0.5.3    httpuv_1.6.1      
+## [25] Matrix_1.3-4       clisymbols_1.2.0   pkgconfig_2.0.3    devtools_2.4.2    
+## [29] purrr_0.3.4        xtable_1.8-4       mvtnorm_1.1-2      processx_3.5.2    
+## [33] whisker_0.4        later_1.2.0        emmeans_1.8.1-1    git2r_0.28.0      
+## [37] tibble_3.1.8       generics_0.1.0     usethis_2.0.1      ellipsis_0.3.2    
+## [41] TH.data_1.1-0      cachem_1.0.5       withr_2.5.0        cli_3.3.0         
+## [45] survival_3.2-11    magrittr_2.0.3     crayon_1.5.1       effectsize_0.7.0.5
+## [49] memoise_2.0.0      estimability_1.4.1 evaluate_0.15      ps_1.6.0          
+## [53] fs_1.5.0           fansi_1.0.3        MASS_7.3-54        pkgbuild_1.2.0    
+## [57] tools_4.1.0        prettyunits_1.1.1  formatR_1.11       lifecycle_1.0.1   
+## [61] multcomp_1.4-17    stringr_1.4.0      packrat_0.7.0      callr_3.7.0       
+## [65] compiler_4.1.0     jquerylib_0.1.4    rlang_1.0.5        grid_4.1.0        
+## [69] parameters_0.18.2  rstudioapi_0.13    rmarkdown_2.16     testthat_3.0.4    
+## [73] codetools_0.2-18   R6_2.5.1           lubridate_1.7.10   zoo_1.8-9         
+## [77] fastmap_1.1.0      utf8_1.2.2         rprojroot_2.0.2    insight_0.18.4    
+## [81] desc_1.3.0         stringi_1.7.8      Rcpp_1.0.9         vctrs_0.4.1       
+## [85] xfun_0.31          coda_0.19-4</code></pre>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,3224 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>reproducibilidad_en_taxonómica.knit</title>
+
+<script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/clipboard-2.0.6/clipboard.min.js"></script>
+<link href="site_libs/xaringanExtra-clipboard-0.2.6/xaringanExtra-clipboard.css" rel="stylesheet" />
+<script src="site_libs/xaringanExtra-clipboard-0.2.6/xaringanExtra-clipboard.js"></script>
+<script>window.xaringanExtraClipboard(null, {"button":"<i class=\"fa fa-clipboard\"><\/i>","success":"<i class=\"fa fa-check\" style=\"color: #90BE6D\"><\/i>","error":"<i class=\"fa fa-times-circle\" style=\"color: #F94144\"><\/i>"})</script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<link rel="stylesheet" href="extra.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Ciencia Reproducible</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Manuales
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="compendios_de_investigacion.html">Compendios de investigación</a>
+    </li>
+    <li>
+      <a href="reproducibilidad_en_taxonómica.html">Reproducibilidad en la taxonomía</a>
+    </li>
+    <li>
+      <a href="programacion_y_reproducibilidad.html">Programación y reproducibilidad</a>
+    </li>
+    <li>
+      <a href="intro_a_git_y_github.html">Control de versiones: git y github</a>
+    </li>
+    <li>
+      <a href="escribir_articulos_en_rmarkdown.html">Artículos en Rmarkdown</a>
+    </li>
+    <li>
+      <a href="trampas_estadisticas.html">Trampas estadísticas</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="preparacion_curso.html">Preparación para el curso</a>
+</li>
+<li>
+  <a href="https://codefile.io/f/XOIzH23KfULuZKyZ1TYT">Compartir código</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Tareas
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Tarea 1</li>
+    <li class="dropdown-header">Solución: tarea 1</li>
+    <li class="dropdown-header">Tarea 2</li>
+    <li class="dropdown-header">Solución: tarea 2</li>
+    <li class="dropdown-header">Tarea 3</li>
+    <li class="dropdown-header">Solución: tarea 3</li>
+    <li class="dropdown-header">Tarea 4</li>
+    <li class="dropdown-header">Solución: tarea4</li>
+  </ul>
+</li>
+<li>
+  <a href="https://github.com/maRce10/ciencia_reproducible/raw/master/additional_files/2022-10-14_Probl Esp Ecol_15_Herramientas-Practicas-Para-Ciencia-Reproducible.pdf">Programa del curso</a>
+</li>
+<li>
+  <a href="instructor.html">Instructor</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore"><center>
+<font size="6"><b>Reproducibilidad en el uso de información
+taxonómica</b></font>
+</center></h1>
+<h3 class="subtitle"><center>
+<font size="4"><b>Herramientas prácticas para investigación
+reproducible</b></font>
+</center></h3>
+<h4 class="author"><center>
+<font size="5"><a href="http://marceloarayasalas.weebly.com/">Marcelo
+Araya-Salas, PhD</a></font>
+</center></h4>
+<h4 class="date"><center>
+“2022-10-21”
+</center></h4>
+
+</div>
+
+
+<style>
+body
+  { counter-reset: source-line 0; }
+pre.numberSource code
+  { counter-reset: none; }
+</style>
+<p> </p>
+<div id="introducción" class="section level2">
+<h2>Introducción</h2>
+<p>Un aspecto de reproducibilidad científica que es específico de las
+ciencias biológicas es cómo se obtiene, usa y reporta la información
+taxonómica. En la discusión tratamos los temas del uso de vouchers y la
+importancia de documentar adecuadamente la justificación de
+identificaciones taxonómicas. Aquí vamos a ver una herramienta para
+obtener y curar información taxonómica de manera reproducible.</p>
+<p>Vamos a usar el paquete en R <a
+href="https://github.com/ropensci/taxize">‘taxize’</a>. Por cierto, el
+artículo que describe el paquete fue publicado en la revista <a
+href="https://f1000research.com/articles/2-191/v2">F1000Research</a>,
+una de las revistas que vimos al comienzo del semestre es completamente
+abierta.</p>
+<p align="center">
+<img src="images/Screenshot_taxize.png" />
+<p align="center">
+<font size="2"><a
+href="https://f1000research.com/articles/2-191/v2">Chamberlian y Szöcs
+(2013)</a>.
+</p>
+</div>
+<div id="por-qué-taxize" class="section level2">
+<h2>¿Por qué ‘taxize’?</h2>
+<p>Existen bases de datos en línea de las que se puede obtener
+información taxonómica para diversos organismos biológicos. Pero existen
+ventajas de hacer estás búsquedas de manera programática:</p>
+<ol style="list-style-type: decimal">
+<li>es más eficiente si tiene que buscar bastantes taxones</li>
+<li>la búsqueda se convierte en una parte reproducible del flujo de
+trabajo</li>
+</ol>
+<p>La idea de taxize es hacer la extracción y uso de la iformación
+taxonómica fácil y reproducible.</p>
+<p align="center">
+<img src="images/frogtoon.JPG" />
+<p align="center">
+<font size="2"> Imagen: Rohan Chakravarty/<a
+href="https://creativecommons.org/licenses/by-nc-nd/3.0/">CC BY-NC-ND
+3.0</a>.
+</p>
+</div>
+<div id="qué-hace-taxize" class="section level2">
+<h2>¿Qué hace ‘taxize’?</h2>
+<p>‘taxize’ se conecta con varias <a
+href="https://f1000research.com/articles/2-191/v2#T1">bases de datos
+taxonómicas</a> y más pueden ir siendo agregagas paulatinamente. Esta
+información se puede utilizar para llevar a cabo tareas comunes en el
+proceso de investigación. Por ejemplo:</p>
+<div id="resuelve-nombres-taxonómicos" class="section level3">
+<h3>Resuelve nombres taxonómicos</h3>
+<p>Si tenemos una lista de especímenes, posiblemente queremos saber si
+estamos usando nombres actualizados y si los nombres que tenemos están
+escritos correctamente. Podemos hacer esto usando la aplicación Global
+Names Resolver <a href="http://resolver.globalnames.org/">(GNR)</a> de
+la <a href="https://eol.org/">Encyclopedia of Life</a>, a través de
+taxize.</p>
+<p>Como un ejemplo, veamos los datos de ocurrencia que bajé de <a
+href="https://www.gbif.org/">GBIF</a>. Bajé los registros de pajaritos
+del género <em>Ramphocelus</em> en Costa Rica, en la Colección Nacional
+de Zoología. Tal vez, estoy haciendo o planeo hacer un trabajo con estos
+espécimenes.</p>
+<p>Los datos están aquí (<a href="https://doi.org/10.15468/dl.d8frtc"
+class="uri">https://doi.org/10.15468/dl.d8frtc</a>)</p>
+<p>y este es un ejemplo del pajarito:</p>
+<p align="center">
+<img src="images/Ramphocelus.jpeg" />
+<p align="center">
+<font size="2"> <em>Ramphocelus sanguinolentus</em>, La Fortuna, Costa
+Rica
+</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># leamos los datos</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>dat <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="at">file =</span> <span class="st">&quot;./additional_files/0098054-200613084148143.csv&quot;</span>,</span>
+<span id="cb1-3"><a href="#cb1-3"></a>    <span class="at">header =</span> T, <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span>
+<span id="cb1-4"><a href="#cb1-4"></a></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="co"># cuales son las especies en CR?</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a>Ram.names <span class="ot">&lt;-</span> <span class="fu">levels</span>(dat<span class="sc">$</span>species)</span>
+<span id="cb1-7"><a href="#cb1-7"></a>Ram.names</span></code></pre></div>
+<pre><code>## NULL</code></pre>
+<p>Veamos cuáles bases de datos puedo usar para buscar los nombres de
+mis especies</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">require</span>(taxize)</span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="fu">require</span>(kableExtra)</span>
+<span id="cb3-3"><a href="#cb3-3"></a>data.sources <span class="ot">&lt;-</span> <span class="fu">gnr_datasources</span>()</span>
+<span id="cb3-4"><a href="#cb3-4"></a>data.sources[, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">9</span>)] <span class="sc">%&gt;%</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a>    <span class="fu">kbl</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a>    <span class="fu">kable_minimal</span>()</span></code></pre></div>
+<table class=" lightable-minimal" style="font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+created_at
+</th>
+<th style="text-align:right;">
+id
+</th>
+<th style="text-align:right;">
+refresh_period_days
+</th>
+<th style="text-align:left;">
+title
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+2012-07-06T11:36:36Z
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Catalogue of Life Checklist
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-07-06T11:38:14Z
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Wikispecies
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T10:31:13Z
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Integrated Taxonomic Information SystemITIS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T10:47:55Z
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+National Center for Biotechnology Information
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T11:16:43Z
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Index Fungorum (Species Fungorum)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T11:28:38Z
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+GRIN Taxonomy for Plants
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T11:32:18Z
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Union 4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T12:08:54Z
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+The Interim Register of Marine and Nonmarine Genera
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T12:40:45Z
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+World Register of Marine Species
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T12:55:04Z
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Freebase
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T13:01:40Z
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+GBIF Backbone Taxonomy
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T15:36:33Z
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Encyclopedia of Life
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:21:08Z
+</td>
+<td style="text-align:right;">
+93
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Passiflora vernacular names
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:21:09Z
+</td>
+<td style="text-align:right;">
+94
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Inventory of Fish Species in the Wami River Basin
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:21:09Z
+</td>
+<td style="text-align:right;">
+95
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Pheasant Diversity and Conservation in the Mt. Gaoligonshan Region
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:21:09Z
+</td>
+<td style="text-align:right;">
+96
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Finding Species
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:21:10Z
+</td>
+<td style="text-align:right;">
+97
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Birds of Lindi Forests Plantation
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:21:11Z
+</td>
+<td style="text-align:right;">
+98
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Nemertea
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:21:12Z
+</td>
+<td style="text-align:right;">
+99
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Kihansi Gorge Amphibian Species Checklist
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:21:12Z
+</td>
+<td style="text-align:right;">
+100
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Mushroom Observer
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:21:14Z
+</td>
+<td style="text-align:right;">
+101
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+TaxonConcept
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:21:15Z
+</td>
+<td style="text-align:right;">
+102
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Amphibia and Reptilia of Yunnan
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:21:17Z
+</td>
+<td style="text-align:right;">
+103
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Common names of Chilean Plants
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-07-06T11:49:07Z
+</td>
+<td style="text-align:right;">
+104
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Invasive Species of Belgium
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:21:20Z
+</td>
+<td style="text-align:right;">
+105
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+ZooKeys
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:21:23Z
+</td>
+<td style="text-align:right;">
+106
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+COA Wildlife Conservation List
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:21:25Z
+</td>
+<td style="text-align:right;">
+107
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+AskNature
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:21:31Z
+</td>
+<td style="text-align:right;">
+108
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+China: Yunnan, Southern Gaoligongshan, Rapid Biological Inventories
+Report No. 04
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:21:34Z
+</td>
+<td style="text-align:right;">
+109
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Native Orchids from Gaoligongshan Mountains, China
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:21:37Z
+</td>
+<td style="text-align:right;">
+110
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Illinois Wildflowers
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:21:45Z
+</td>
+<td style="text-align:right;">
+112
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Coleorrhyncha Species File
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:21:46Z
+</td>
+<td style="text-align:right;">
+113
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+/home/dimus/files/dwca/zoological names.zip
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:21:57Z
+</td>
+<td style="text-align:right;">
+114
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Peces de la zona hidrogeográfica de la Amazonia, Colombia (Spreadsheet)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:22:04Z
+</td>
+<td style="text-align:right;">
+115
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Eastern Mediterranean Syllidae
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:22:06Z
+</td>
+<td style="text-align:right;">
+116
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Gaoligong Shan Medicinal Plants Checklist
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:22:14Z
+</td>
+<td style="text-align:right;">
+117
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+birds_of_tanzania
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:22:23Z
+</td>
+<td style="text-align:right;">
+118
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+AmphibiaWeb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:22:38Z
+</td>
+<td style="text-align:right;">
+119
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+tanzania_plant_sepecimens
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:22:45Z
+</td>
+<td style="text-align:right;">
+120
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Papahanaumokuakea Marine National Monument
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:23:21Z
+</td>
+<td style="text-align:right;">
+121
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Taiwanese IUCN species list
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:23:27Z
+</td>
+<td style="text-align:right;">
+122
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+BioPedia
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:24:06Z
+</td>
+<td style="text-align:right;">
+123
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+AnAge
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:24:25Z
+</td>
+<td style="text-align:right;">
+124
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Embioptera Species File
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:24:28Z
+</td>
+<td style="text-align:right;">
+125
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Global Invasive Species Database
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:24:38Z
+</td>
+<td style="text-align:right;">
+126
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Sendoya S., Fernández F. AAT de hormigas (Hymenoptera: Formicidae) del
+Neotrópico 1.0 2004 (Spreadsheet)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:25:00Z
+</td>
+<td style="text-align:right;">
+127
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Flora of Gaoligong Mountains
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:25:16Z
+</td>
+<td style="text-align:right;">
+128
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+ARKive
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:25:27Z
+</td>
+<td style="text-align:right;">
+129
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+True Fruit Flies (Diptera, Tephritidae) of the Afrotropical Region
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:25:30Z
+</td>
+<td style="text-align:right;">
+130
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+3i - Typhlocybinae Database
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:26:09Z
+</td>
+<td style="text-align:right;">
+131
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+CATE Sphingidae
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:26:28Z
+</td>
+<td style="text-align:right;">
+132
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+ZooBank
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:26:44Z
+</td>
+<td style="text-align:right;">
+133
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Diatoms
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:27:14Z
+</td>
+<td style="text-align:right;">
+134
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+AntWeb
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:27:40Z
+</td>
+<td style="text-align:right;">
+135
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Endemic species in Taiwan
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:28:15Z
+</td>
+<td style="text-align:right;">
+136
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Dermaptera Species File
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:28:21Z
+</td>
+<td style="text-align:right;">
+137
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Mantodea Species File
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:28:29Z
+</td>
+<td style="text-align:right;">
+138
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Birds of the World: Recommended English Names
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:29:01Z
+</td>
+<td style="text-align:right;">
+139
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+New Zealand Animalia
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:30:39Z
+</td>
+<td style="text-align:right;">
+140
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Blattodea Species File
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:30:57Z
+</td>
+<td style="text-align:right;">
+141
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Plecoptera Species File
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:31:58Z
+</td>
+<td style="text-align:right;">
+143
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Coreoidea Species File
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:32:28Z
+</td>
+<td style="text-align:right;">
+144
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Freshwater Animal Diversity Assessment - Normalized export
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:33:38Z
+</td>
+<td style="text-align:right;">
+145
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Catalogue of Vascular Plant Species of Central and Northeastern Brazil
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:35:12Z
+</td>
+<td style="text-align:right;">
+146
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Wikipedia in EOL
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:36:49Z
+</td>
+<td style="text-align:right;">
+147
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Database of Vascular Plants of Canada (VASCAN)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:38:13Z
+</td>
+<td style="text-align:right;">
+148
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Phasmida Species File
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:38:29Z
+</td>
+<td style="text-align:right;">
+149
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+OBIS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:40:09Z
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+USDA NRCS PLANTS Database
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:42:04Z
+</td>
+<td style="text-align:right;">
+151
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Catalog of Fishes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:43:41Z
+</td>
+<td style="text-align:right;">
+152
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Aphid Species File
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:44:03Z
+</td>
+<td style="text-align:right;">
+153
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+The National Checklist of Taiwan
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:46:06Z
+</td>
+<td style="text-align:right;">
+154
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Psocodea Species File
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:46:24Z
+</td>
+<td style="text-align:right;">
+155
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+FishBase
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:48:19Z
+</td>
+<td style="text-align:right;">
+156
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+3i - Typhlocybinae Database
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:48:44Z
+</td>
+<td style="text-align:right;">
+157
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Belgian Species List
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:51:49Z
+</td>
+<td style="text-align:right;">
+158
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+EUNIS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T18:58:36Z
+</td>
+<td style="text-align:right;">
+159
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+CU*STAR
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T19:10:42Z
+</td>
+<td style="text-align:right;">
+161
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Orthoptera Species File
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T19:11:37Z
+</td>
+<td style="text-align:right;">
+162
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Bishop Museum
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T19:18:20Z
+</td>
+<td style="text-align:right;">
+163
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+IUCN Red List of Threatened Species
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T19:20:46Z
+</td>
+<td style="text-align:right;">
+164
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+BioLib.cz
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T19:43:03Z
+</td>
+<td style="text-align:right;">
+165
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Tropicos - Missouri Botanical Garden
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T20:05:41Z
+</td>
+<td style="text-align:right;">
+166
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+nlbif
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-02-09T20:36:27Z
+</td>
+<td style="text-align:right;">
+167
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+The International Plant Names Index
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-05-07T13:45:07Z
+</td>
+<td style="text-align:right;">
+168
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Index to Organism Names
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2012-05-07T13:50:15Z
+</td>
+<td style="text-align:right;">
+169
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+uBio NameBank
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2013-05-31T01:17:28Z
+</td>
+<td style="text-align:right;">
+170
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Arctos
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2013-12-10T03:02:58Z
+</td>
+<td style="text-align:right;">
+171
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Checklist of Beetles (Coleoptera) of Canada and Alaska. Second Edition.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2014-12-08T11:17:24Z
+</td>
+<td style="text-align:right;">
+172
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+The Paleobiology Database
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2014-12-08T19:50:56Z
+</td>
+<td style="text-align:right;">
+173
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+The Reptile Database
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2014-12-09T21:27:18Z
+</td>
+<td style="text-align:right;">
+174
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+The Mammal Species of The World
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2014-12-11T00:19:59Z
+</td>
+<td style="text-align:right;">
+175
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+BirdLife International
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2015-03-03T13:48:51Z
+</td>
+<td style="text-align:right;">
+176
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Checklist da Flora de Portugal (Continental, Açores e Madeira)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2016-07-20T11:13:25Z
+</td>
+<td style="text-align:right;">
+177
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+FishBase Cache
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2016-10-18T20:00:31Z
+</td>
+<td style="text-align:right;">
+178
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Silva
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2016-10-19T10:13:10Z
+</td>
+<td style="text-align:right;">
+179
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Open Tree of Life Reference Taxonomy
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2016-10-30T00:46:40Z
+</td>
+<td style="text-align:right;">
+180
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+iNaturalist
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2016-11-03T16:09:05Z
+</td>
+<td style="text-align:right;">
+181
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+The Interim Register of Marine and Nonmarine Genera
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2017-03-22T15:26:50Z
+</td>
+<td style="text-align:right;">
+182
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Gymno
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2020-05-25T02:43:22Z
+</td>
+<td style="text-align:right;">
+183
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Index Animalium
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2020-05-25T10:32:16Z
+</td>
+<td style="text-align:right;">
+184
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+ASM Mammal Diversity Database
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2020-05-27T01:41:11Z
+</td>
+<td style="text-align:right;">
+185
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+IOC World Bird List
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2020-05-28T00:01:22Z
+</td>
+<td style="text-align:right;">
+186
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+MCZbase
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2020-05-28T16:50:17Z
+</td>
+<td style="text-align:right;">
+187
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+The eBird/Clements Checklist of Birds of the World
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2020-05-30T00:58:32Z
+</td>
+<td style="text-align:right;">
+188
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+American Ornithological Society
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2020-05-31T00:36:35Z
+</td>
+<td style="text-align:right;">
+189
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Howard and Moore Complete Checklist of the Birds of the World
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2020-05-31T01:23:24Z
+</td>
+<td style="text-align:right;">
+193
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Myriatrix
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-03-19T16:48:41Z
+</td>
+<td style="text-align:right;">
+194
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+PLAZI treatments
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-10-21T12:27:48Z
+</td>
+<td style="text-align:right;">
+195
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+AlgaeBase
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-12-28T13:04:34Z
+</td>
+<td style="text-align:right;">
+196
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+World Flora Online consortium
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-12-29T13:29:11Z
+</td>
+<td style="text-align:right;">
+197
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+World Checklist of Vascular Plants
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2021-12-30T14:32:51Z
+</td>
+<td style="text-align:right;">
+198
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+The Leipzig Catalogue of Vascular Plants
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2022-01-14T22:16:40Z
+</td>
+<td style="text-align:right;">
+200
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+The Terrestrial Parasite Tracker
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2022-02-14T15:59:43Z
+</td>
+<td style="text-align:right;">
+201
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+ICTV Virus Taxonomy
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2022-02-18T21:58:40Z
+</td>
+<td style="text-align:right;">
+202
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Discover Life Bee Species Guide
+</td>
+</tr>
+</tbody>
+</table>
+<p>Revisemos si están escritos correctamente</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>name.res <span class="ot">&lt;-</span> <span class="fu">gnr_resolve</span>(<span class="at">sci =</span> Ram.names, <span class="at">data_source_ids =</span> <span class="fu">c</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">4</span>))</span>
+<span id="cb4-2"><a href="#cb4-2"></a>name.res[, <span class="sc">-</span><span class="dv">1</span>] <span class="sc">%&gt;%</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a>    <span class="fu">kbl</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a>    <span class="fu">kable_minimal</span>()</span></code></pre></div>
+<p>¿Y si no lo estuvieran?</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>Ram.names2 <span class="ot">&lt;-</span> Ram.names</span>
+<span id="cb5-2"><a href="#cb5-2"></a>Ram.names2[<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="st">&quot;Ramphocelus passerini&quot;</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a>name.res2 <span class="ot">&lt;-</span> <span class="fu">gnr_resolve</span>(<span class="at">sci =</span> Ram.names2, <span class="at">data_source_ids =</span> <span class="fu">c</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">4</span>))</span>
+<span id="cb5-4"><a href="#cb5-4"></a>name.res2[, <span class="sc">-</span><span class="dv">1</span>] <span class="sc">%&gt;%</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a>    <span class="fu">kbl</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a>    <span class="fu">kable_minimal</span>()</span></code></pre></div>
+<table class=" lightable-minimal" style="font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+submitted_name
+</th>
+<th style="text-align:left;">
+matched_name
+</th>
+<th style="text-align:left;">
+data_source_title
+</th>
+<th style="text-align:right;">
+score
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Ramphocelus passerini
+</td>
+<td style="text-align:left;">
+Ramphocelus passerinii Bonaparte, 1831
+</td>
+<td style="text-align:left;">
+Integrated Taxonomic Information SystemITIS
+</td>
+<td style="text-align:right;">
+0.75
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ramphocelus passerini
+</td>
+<td style="text-align:left;">
+Ramphocelus passerinii
+</td>
+<td style="text-align:left;">
+National Center for Biotechnology Information
+</td>
+<td style="text-align:right;">
+0.75
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="identifica-sinónimos" class="section level3">
+<h3>Identifica sinónimos</h3>
+<p>Busquemos si hay sinónimos para estas especies</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">synonyms</span>(<span class="at">sci_id =</span> Ram.names, <span class="at">db =</span> <span class="st">&quot;itis&quot;</span>)</span></code></pre></div>
+<p>Para usar algunas bases de datos es necesario obtener un ‘API key’
+Esto no se puede hacer automáticamente con ‘taxize’ pero se puede
+obtener instrucciones de cómo obtener y guardar el API key para usarlo
+desde R. Veamos un par de ejemplos:</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">use_tropicos</span>()</span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="fu">use_iucn</span>()</span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="fu">use_entrez</span>()</span>
+<span id="cb7-4"><a href="#cb7-4"></a></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="co"># para más información</span></span>
+<span id="cb7-6"><a href="#cb7-6"></a><span class="st">`</span><span class="at">?</span><span class="st">`</span>(<span class="fu">key_helpers</span>())</span>
+<span id="cb7-7"><a href="#cb7-7"></a><span class="st">`</span><span class="at">?</span><span class="st">`</span>(<span class="st">`</span><span class="at">taxize-authentication</span><span class="st">`</span>)</span></code></pre></div>
+<style>
+div.ejercicios { background-color:#F5F5DC; border-radius: 5px; padding: 5px}
+div.discu { background-color:#6699CC; border-radius: 5px; padding: 5px}
+</style>
+<div id="ejercicio-1" class="section level4 ejercicios">
+<h4>Ejercicio 1</h4>
+<ol style="list-style-type: decimal">
+<li>Instale el paquete ‘usethis’ con el commando
+<code>install.packages("usethis")</code></li>
+<li>Obtenga el ‘API key’ para una base de datos de su interés</li>
+<li>Añada este ‘API key’ a su ambiente en R con el comando
+<code>usethis::edit_r_environ()</code></li>
+<li>Reinicie R y verifique que tiene el ‘API key’ usando
+<code>getkey()</code></li>
+<li>Si todo salió bien, ya lo vamos a usar.</li>
+</ol>
+</div>
+<p> </p>
+</div>
+<div id="extrae-clasificación-taxonómica" class="section level3">
+<h3>Extrae clasificación taxonómica</h3>
+<p>Podemos obtener información sobre la clasificación taxonómica
+superior de nuestras especies. Si su clave es para ‘tropicos’ o ‘entrez’
+puede usar las bases de datos respectivas (tropicos y ncbi). Por
+ejemplo:</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>Ram.class <span class="ot">&lt;-</span> <span class="fu">classification</span>(Ram.names, <span class="at">db =</span> <span class="st">&quot;ncbi&quot;</span>)</span>
+<span id="cb8-2"><a href="#cb8-2"></a>Ram.class[[<span class="dv">1</span>]] <span class="sc">%&gt;%</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a>    <span class="fu">kbl</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a>    <span class="fu">kable_minimal</span>()</span></code></pre></div>
+<p>y si sólo queremos saber la familia…</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>Ram.fam <span class="ot">&lt;-</span> <span class="fu">tax_name</span>(<span class="at">sci =</span> Ram.names, <span class="at">get =</span> <span class="st">&quot;family&quot;</span>, <span class="at">db =</span> <span class="st">&quot;ncbi&quot;</span>)</span>
+<span id="cb9-2"><a href="#cb9-2"></a>Ram.fam <span class="sc">%&gt;%</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a>    <span class="fu">kbl</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a>    <span class="fu">kable_minimal</span>()</span></code></pre></div>
+<table class=" lightable-minimal" style="font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; margin-left: auto; margin-right: auto;">
+<tbody>
+<tr>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="obtiene-los-nombres-corriente-abajo" class="section level3">
+<h3>Obtiene los nombres corriente abajo</h3>
+<p>Ta vez queremos saber cuáles o cuántos son los miembros de un cierto
+grupo taxonómico. Por ejemplo, ¿cuántas especies hay en el género
+<em>Ramphocelus</em>?</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># separemos el genero</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a>genus <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(Ram.names[<span class="dv">1</span>], <span class="st">&quot; &quot;</span>)[[<span class="dv">1</span>]][<span class="dv">1</span>]</span>
+<span id="cb10-3"><a href="#cb10-3"></a></span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="co"># obtengamos las especies</span></span>
+<span id="cb10-5"><a href="#cb10-5"></a>Ram.down <span class="ot">&lt;-</span> <span class="fu">downstream</span>(<span class="at">sci_id =</span> genus, <span class="at">downto =</span> <span class="st">&quot;species&quot;</span>, <span class="at">db =</span> <span class="st">&quot;ncbi&quot;</span>)</span>
+<span id="cb10-6"><a href="#cb10-6"></a>Ram.down[[<span class="dv">1</span>]] <span class="sc">%&gt;%</span></span>
+<span id="cb10-7"><a href="#cb10-7"></a>    <span class="fu">kbl</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb10-8"><a href="#cb10-8"></a>    <span class="fu">kable_minimal</span>()</span></code></pre></div>
+</div>
+<div id="obtiene-información-del-estado-de-conservación"
+class="section level3">
+<h3>Obtiene información del estado de conservación</h3>
+<p>Si tienen el ‘API key’ para IUCN, pueden obtener información sobre el
+estado de consevación.</p>
+<p><em>OJO: los autores de ‘taxize’ advierten usar con mucho cuidado ya
+que puede haber errores</em></p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>Ram.sum <span class="ot">&lt;-</span> <span class="fu">iucn_summary</span>(Ram.names)</span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="fu">iucn_status</span>(Ram.sum)</span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="fu">get_iucn</span>(Ram.names)</span></code></pre></div>
+</div>
+</div>
+<div id="ejemplos-de-aplicaciones-en-ciencia-reproducible"
+class="section level2">
+<h2>Ejemplos de aplicaciones en ciencia reproducible</h2>
+<p>Veamos algunos ejemplos de cómo usar herramientas como
+’taxize’contribuyen a investigación más reproducible.</p>
+<div id="listas-de-hospederos-en-miles-de-comunidades"
+class="section level3">
+<h3>Listas de hospederos en miles de comunidades</h3>
+<p align="center">
+<img src="images/Zoonotic1.png" />
+<p align="center">
+<font size="2"> Artículo de <a
+href="https://www.nature.com/articles/s41586-020-2562-8">Gibb et
+al. 2020, Nature</a>
+</p>
+<p><strong>De la sección de métodos:</strong></p>
+<p>“<em>We compiled animal host–pathogen associations from several
+source databases, to provide as comprehensive a dataset as possible of
+zoonotic host species and their pathogens: the Enhanced Infectious
+Diseases (EID2) database; the Global Mammal Parasite Database v.2.0
+(GMPD2) which collates records of parasites of cetartiodactyls,
+carnivores and primates; a reservoir hosts database; a mammal–virus
+associations database; and a rodent zoonotic reservoirs database
+augmented with pathogen data from the Global Infectious Disease and
+Epidemiology Network (GIDEON) (Supplementary Table 8). <span
+style="color: #32CD32;">We harmonized species names across all
+databases, excluding instances in which either hosts or pathogens could
+not be classified to species level. To prevent erroneous matches due to
+misspelling or taxonomic revision, all host species synonyms were
+accessed from Catalogue Of Life using ‘taxize’ v.0.8.939</span>.
+Combined, the dataset contained 20,382 associations between 3,883 animal
+host species and 5,694 pathogen species.</em>”</p>
+<p>Veamos el código del artículo y hagamos una pequeña modificación para
+aplicar la función a nuestros datos</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># taxize/GBIFr</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="fu">require</span>(taxize)</span>
+<span id="cb12-3"><a href="#cb12-3"></a><span class="fu">require</span>(rgbif)</span>
+<span id="cb12-4"><a href="#cb12-4"></a><span class="fu">library</span>(plyr)</span>
+<span id="cb12-5"><a href="#cb12-5"></a></span>
+<span id="cb12-6"><a href="#cb12-6"></a><span class="co"># function to find and resolve taxonomic synonyms based on</span></span>
+<span id="cb12-7"><a href="#cb12-7"></a><span class="co"># Encyclopedia of Life</span></span>
+<span id="cb12-8"><a href="#cb12-8"></a>findSyns2 <span class="ot">=</span> <span class="cf">function</span>(x) {</span>
+<span id="cb12-9"><a href="#cb12-9"></a></span>
+<span id="cb12-10"><a href="#cb12-10"></a>    <span class="co"># get specific species name taxname = hosts_vec[x] un cambio</span></span>
+<span id="cb12-11"><a href="#cb12-11"></a>    <span class="co"># pequenio para usar la funcion con nuestros datos</span></span>
+<span id="cb12-12"><a href="#cb12-12"></a>    taxname <span class="ot">=</span> x</span>
+<span id="cb12-13"><a href="#cb12-13"></a>    <span class="co"># print progress</span></span>
+<span id="cb12-14"><a href="#cb12-14"></a>    <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Processing:&quot;</span>, taxname, <span class="at">sep =</span> <span class="st">&quot; &quot;</span>))</span>
+<span id="cb12-15"><a href="#cb12-15"></a></span>
+<span id="cb12-16"><a href="#cb12-16"></a>    <span class="co"># phyla</span></span>
+<span id="cb12-17"><a href="#cb12-17"></a>    phyla <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;Chordata&quot;</span>, <span class="st">&quot;Arthropoda&quot;</span>, <span class="st">&quot;Gastropoda&quot;</span>, <span class="st">&quot;Mollusca&quot;</span>)</span>
+<span id="cb12-18"><a href="#cb12-18"></a></span>
+<span id="cb12-19"><a href="#cb12-19"></a>    <span class="co"># (1) resolve misspellings</span></span>
+<span id="cb12-20"><a href="#cb12-20"></a>    taxname_resolved <span class="ot">=</span> <span class="fu">gnr_resolve</span>(taxname, <span class="at">with_canonical_ranks =</span> <span class="cn">TRUE</span>)<span class="sc">$</span>matched_name2[<span class="dv">1</span>]</span>
+<span id="cb12-21"><a href="#cb12-21"></a>    <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.null</span>(taxname_resolved)) {</span>
+<span id="cb12-22"><a href="#cb12-22"></a>        <span class="cf">if</span> (<span class="fu">length</span>(<span class="fu">strsplit</span>(taxname_resolved, <span class="st">&quot; &quot;</span>, <span class="at">fixed =</span> <span class="cn">TRUE</span>)[[<span class="dv">1</span>]]) <span class="sc">==</span></span>
+<span id="cb12-23"><a href="#cb12-23"></a>            <span class="dv">2</span>) {</span>
+<span id="cb12-24"><a href="#cb12-24"></a>            taxa <span class="ot">=</span> taxname_resolved</span>
+<span id="cb12-25"><a href="#cb12-25"></a>        }</span>
+<span id="cb12-26"><a href="#cb12-26"></a>    }</span>
+<span id="cb12-27"><a href="#cb12-27"></a>    <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.null</span>(taxname_resolved)) {</span>
+<span id="cb12-28"><a href="#cb12-28"></a>        <span class="cf">if</span> (<span class="fu">length</span>(<span class="fu">strsplit</span>(taxname_resolved, <span class="st">&quot; &quot;</span>, <span class="at">fixed =</span> <span class="cn">TRUE</span>)[[<span class="dv">1</span>]]) <span class="sc">&gt;</span></span>
+<span id="cb12-29"><a href="#cb12-29"></a>            <span class="dv">2</span>) {</span>
+<span id="cb12-30"><a href="#cb12-30"></a>            taxa <span class="ot">=</span> <span class="fu">paste</span>(<span class="fu">strsplit</span>(taxname_resolved, <span class="st">&quot; &quot;</span>, <span class="at">fixed =</span> <span class="cn">TRUE</span>)[[<span class="dv">1</span>]][<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>],</span>
+<span id="cb12-31"><a href="#cb12-31"></a>                <span class="at">collapse =</span> <span class="st">&quot; &quot;</span>)</span>
+<span id="cb12-32"><a href="#cb12-32"></a>        }</span>
+<span id="cb12-33"><a href="#cb12-33"></a>    }</span>
+<span id="cb12-34"><a href="#cb12-34"></a></span>
+<span id="cb12-35"><a href="#cb12-35"></a>    <span class="co"># if taxa == NA, return list with nothing defined</span></span>
+<span id="cb12-36"><a href="#cb12-36"></a>    <span class="cf">if</span> (<span class="fu">is.na</span>(taxa)) {</span>
+<span id="cb12-37"><a href="#cb12-37"></a>        <span class="cf">if</span> (<span class="fu">class</span>(syns)[<span class="dv">1</span>] <span class="sc">==</span> <span class="st">&quot;simpleError&quot;</span>) {</span>
+<span id="cb12-38"><a href="#cb12-38"></a>            <span class="fu">return</span>(<span class="fu">data.frame</span>(<span class="at">Original =</span> taxname, <span class="at">Submitted =</span> taxname_resolved,</span>
+<span id="cb12-39"><a href="#cb12-39"></a>                <span class="at">Accepted_name =</span> <span class="cn">NA</span>, <span class="at">Selected_family =</span> <span class="cn">NA</span>, <span class="at">Selected_order =</span> <span class="cn">NA</span>,</span>
+<span id="cb12-40"><a href="#cb12-40"></a>                <span class="at">Selected_class =</span> <span class="cn">NA</span>, <span class="at">Synonyms =</span> <span class="cn">NA</span>))</span>
+<span id="cb12-41"><a href="#cb12-41"></a>        }</span>
+<span id="cb12-42"><a href="#cb12-42"></a>    }</span>
+<span id="cb12-43"><a href="#cb12-43"></a></span>
+<span id="cb12-44"><a href="#cb12-44"></a>    <span class="co"># (2) remove sub-species categorisations and set &#39;genus&#39; and</span></span>
+<span id="cb12-45"><a href="#cb12-45"></a>    <span class="co"># &#39;species&#39; variables</span></span>
+<span id="cb12-46"><a href="#cb12-46"></a>    genus <span class="ot">=</span> <span class="cn">NULL</span></span>
+<span id="cb12-47"><a href="#cb12-47"></a>    <span class="cf">if</span> (<span class="fu">length</span>(<span class="fu">strsplit</span>(taxa, <span class="st">&quot; &quot;</span>, <span class="at">fixed =</span> <span class="cn">TRUE</span>)[[<span class="dv">1</span>]]) <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>)) {</span>
+<span id="cb12-48"><a href="#cb12-48"></a>        genus <span class="ot">=</span> <span class="fu">strsplit</span>(taxa, <span class="st">&quot; &quot;</span>, <span class="at">fixed =</span> <span class="cn">TRUE</span>)[[<span class="dv">1</span>]][<span class="dv">1</span>]</span>
+<span id="cb12-49"><a href="#cb12-49"></a>        species <span class="ot">=</span> <span class="fu">strsplit</span>(taxa, <span class="st">&quot; &quot;</span>, <span class="at">fixed =</span> <span class="cn">TRUE</span>)[[<span class="dv">1</span>]][<span class="dv">2</span>]</span>
+<span id="cb12-50"><a href="#cb12-50"></a>    }</span>
+<span id="cb12-51"><a href="#cb12-51"></a>    <span class="cf">if</span> (<span class="fu">length</span>(<span class="fu">strsplit</span>(taxa, <span class="st">&quot;_&quot;</span>, <span class="at">fixed =</span> <span class="cn">TRUE</span>)[[<span class="dv">1</span>]]) <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>)) {</span>
+<span id="cb12-52"><a href="#cb12-52"></a>        genus <span class="ot">=</span> <span class="fu">strsplit</span>(taxa, <span class="st">&quot;_&quot;</span>, <span class="at">fixed =</span> <span class="cn">TRUE</span>)[[<span class="dv">1</span>]][<span class="dv">1</span>]</span>
+<span id="cb12-53"><a href="#cb12-53"></a>        species <span class="ot">=</span> <span class="fu">strsplit</span>(taxa, <span class="st">&quot;_&quot;</span>, <span class="at">fixed =</span> <span class="cn">TRUE</span>)[[<span class="dv">1</span>]][<span class="dv">2</span>]</span>
+<span id="cb12-54"><a href="#cb12-54"></a>    }</span>
+<span id="cb12-55"><a href="#cb12-55"></a>    <span class="cf">if</span> (<span class="fu">length</span>(<span class="fu">strsplit</span>(taxa, <span class="st">&quot; &quot;</span>, <span class="at">fixed =</span> <span class="cn">TRUE</span>)[[<span class="dv">1</span>]]) <span class="sc">&gt;</span> <span class="dv">3</span> <span class="sc">|</span> <span class="fu">length</span>(<span class="fu">strsplit</span>(taxa,</span>
+<span id="cb12-56"><a href="#cb12-56"></a>        <span class="st">&quot;_&quot;</span>, <span class="at">fixed =</span> <span class="cn">TRUE</span>)[[<span class="dv">1</span>]][<span class="dv">1</span>]) <span class="sc">&gt;</span> <span class="dv">3</span>) {</span>
+<span id="cb12-57"><a href="#cb12-57"></a>        <span class="fu">return</span>(<span class="st">&quot;name error&quot;</span>)</span>
+<span id="cb12-58"><a href="#cb12-58"></a>    }</span>
+<span id="cb12-59"><a href="#cb12-59"></a>    <span class="cf">if</span> (<span class="fu">is.null</span>(genus)) {</span>
+<span id="cb12-60"><a href="#cb12-60"></a>        genus <span class="ot">=</span> taxa</span>
+<span id="cb12-61"><a href="#cb12-61"></a>        species <span class="ot">=</span> <span class="cn">NA</span></span>
+<span id="cb12-62"><a href="#cb12-62"></a>    }</span>
+<span id="cb12-63"><a href="#cb12-63"></a></span>
+<span id="cb12-64"><a href="#cb12-64"></a>    <span class="co"># (3) use genus to lookup family, order, class</span></span>
+<span id="cb12-65"><a href="#cb12-65"></a>    syns <span class="ot">=</span> <span class="fu">tryCatch</span>(<span class="fu">name_lookup</span>(genus)<span class="sc">$</span>data, <span class="at">error =</span> <span class="cf">function</span>(e) e)</span>
+<span id="cb12-66"><a href="#cb12-66"></a>    <span class="cf">if</span> (<span class="fu">class</span>(syns)[<span class="dv">1</span>] <span class="sc">==</span> <span class="st">&quot;simpleError&quot;</span>) {</span>
+<span id="cb12-67"><a href="#cb12-67"></a>        <span class="fu">return</span>(<span class="fu">data.frame</span>(<span class="at">Original =</span> taxname, <span class="at">Submitted =</span> taxa, <span class="at">Accepted_name =</span> <span class="cn">NA</span>,</span>
+<span id="cb12-68"><a href="#cb12-68"></a>            <span class="at">Selected_family =</span> <span class="cn">NA</span>, <span class="at">Selected_order =</span> <span class="cn">NA</span>, <span class="at">Selected_class =</span> <span class="cn">NA</span>,</span>
+<span id="cb12-69"><a href="#cb12-69"></a>            <span class="at">Synonyms =</span> <span class="cn">NA</span>))</span>
+<span id="cb12-70"><a href="#cb12-70"></a>    }</span>
+<span id="cb12-71"><a href="#cb12-71"></a></span>
+<span id="cb12-72"><a href="#cb12-72"></a>    <span class="co"># for cases where the lookup does not find a phylum within</span></span>
+<span id="cb12-73"><a href="#cb12-73"></a>    <span class="co"># the specified range</span></span>
+<span id="cb12-74"><a href="#cb12-74"></a>    <span class="cf">if</span> (<span class="fu">all</span>(<span class="sc">!</span>syns<span class="sc">$</span>phylum <span class="sc">%in%</span> phyla)) {</span>
+<span id="cb12-75"><a href="#cb12-75"></a>        fam1 <span class="ot">=</span> syns<span class="sc">$</span>family[<span class="sc">!</span><span class="fu">is.na</span>(syns<span class="sc">$</span>family) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(syns<span class="sc">$</span>phylum)]</span>
+<span id="cb12-76"><a href="#cb12-76"></a>        order1 <span class="ot">=</span> syns<span class="sc">$</span>order[<span class="sc">!</span><span class="fu">is.na</span>(syns<span class="sc">$</span>family) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(syns<span class="sc">$</span>phylum)]</span>
+<span id="cb12-77"><a href="#cb12-77"></a>        class1 <span class="ot">=</span> syns<span class="sc">$</span>class[<span class="sc">!</span><span class="fu">is.na</span>(syns<span class="sc">$</span>family) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(syns<span class="sc">$</span>phylum)]</span>
+<span id="cb12-78"><a href="#cb12-78"></a>        datfam <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">fam1 =</span> fam1, <span class="at">order =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(fam1), <span class="at">order1 =</span> order1,</span>
+<span id="cb12-79"><a href="#cb12-79"></a>            <span class="at">class1 =</span> class1)</span>
+<span id="cb12-80"><a href="#cb12-80"></a>        <span class="co"># select highest frequency fam/class/order combo</span></span>
+<span id="cb12-81"><a href="#cb12-81"></a>        fam2 <span class="ot">=</span> <span class="fu">as.data.frame</span>(<span class="fu">table</span>(datfam[, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">4</span>)]))</span>
+<span id="cb12-82"><a href="#cb12-82"></a>        family2 <span class="ot">=</span> <span class="fu">as.vector</span>(fam2[fam2<span class="sc">$</span>Freq <span class="sc">==</span> <span class="fu">max</span>(fam2<span class="sc">$</span>Freq, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb12-83"><a href="#cb12-83"></a>            <span class="st">&quot;fam1&quot;</span>])</span>
+<span id="cb12-84"><a href="#cb12-84"></a>        order2 <span class="ot">=</span> <span class="fu">as.vector</span>(fam2[fam2<span class="sc">$</span>Freq <span class="sc">==</span> <span class="fu">max</span>(fam2<span class="sc">$</span>Freq, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb12-85"><a href="#cb12-85"></a>            <span class="st">&quot;order1&quot;</span>])</span>
+<span id="cb12-86"><a href="#cb12-86"></a>        class2 <span class="ot">=</span> <span class="fu">as.vector</span>(fam2[fam2<span class="sc">$</span>Freq <span class="sc">==</span> <span class="fu">max</span>(fam2<span class="sc">$</span>Freq, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb12-87"><a href="#cb12-87"></a>            <span class="st">&quot;class1&quot;</span>])</span>
+<span id="cb12-88"><a href="#cb12-88"></a>        <span class="cf">if</span> (<span class="fu">length</span>(fam2) <span class="sc">&gt;</span> <span class="dv">1</span>) {</span>
+<span id="cb12-89"><a href="#cb12-89"></a>            datfam2 <span class="ot">=</span> datfam[datfam<span class="sc">$</span>fam1 <span class="sc">%in%</span> family2, ]</span>
+<span id="cb12-90"><a href="#cb12-90"></a>            family2 <span class="ot">=</span> <span class="fu">as.vector</span>(datfam2[datfam2<span class="sc">$</span>order <span class="sc">==</span> <span class="fu">min</span>(datfam2<span class="sc">$</span>order,</span>
+<span id="cb12-91"><a href="#cb12-91"></a>                <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="st">&quot;fam1&quot;</span>])</span>
+<span id="cb12-92"><a href="#cb12-92"></a>            order2 <span class="ot">=</span> <span class="fu">as.vector</span>(datfam2[datfam2<span class="sc">$</span>order <span class="sc">==</span> <span class="fu">min</span>(datfam2<span class="sc">$</span>order,</span>
+<span id="cb12-93"><a href="#cb12-93"></a>                <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="st">&quot;order1&quot;</span>])</span>
+<span id="cb12-94"><a href="#cb12-94"></a>            class2 <span class="ot">=</span> <span class="fu">as.vector</span>(datfam2[datfam2<span class="sc">$</span>order <span class="sc">==</span> <span class="fu">min</span>(datfam2<span class="sc">$</span>order,</span>
+<span id="cb12-95"><a href="#cb12-95"></a>                <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="st">&quot;class1&quot;</span>])</span>
+<span id="cb12-96"><a href="#cb12-96"></a>        }</span>
+<span id="cb12-97"><a href="#cb12-97"></a>    } <span class="cf">else</span> {</span>
+<span id="cb12-98"><a href="#cb12-98"></a>        <span class="co"># for everything else</span></span>
+<span id="cb12-99"><a href="#cb12-99"></a>        fam1 <span class="ot">=</span> syns<span class="sc">$</span>family[<span class="sc">!</span><span class="fu">is.na</span>(syns<span class="sc">$</span>family) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(syns<span class="sc">$</span>phylum) <span class="sc">&amp;</span></span>
+<span id="cb12-100"><a href="#cb12-100"></a>            (syns<span class="sc">$</span>phylum <span class="sc">%in%</span> phyla)]</span>
+<span id="cb12-101"><a href="#cb12-101"></a>        order1 <span class="ot">=</span> syns<span class="sc">$</span>order[<span class="sc">!</span><span class="fu">is.na</span>(syns<span class="sc">$</span>family) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(syns<span class="sc">$</span>phylum) <span class="sc">&amp;</span></span>
+<span id="cb12-102"><a href="#cb12-102"></a>            (syns<span class="sc">$</span>phylum <span class="sc">%in%</span> phyla)]</span>
+<span id="cb12-103"><a href="#cb12-103"></a>        class1 <span class="ot">=</span> syns<span class="sc">$</span>class[<span class="sc">!</span><span class="fu">is.na</span>(syns<span class="sc">$</span>family) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(syns<span class="sc">$</span>phylum) <span class="sc">&amp;</span></span>
+<span id="cb12-104"><a href="#cb12-104"></a>            (syns<span class="sc">$</span>phylum <span class="sc">%in%</span> phyla)]</span>
+<span id="cb12-105"><a href="#cb12-105"></a>        datfam <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">fam1 =</span> fam1, <span class="at">order =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(fam1), <span class="at">order1 =</span> order1,</span>
+<span id="cb12-106"><a href="#cb12-106"></a>            <span class="at">class1 =</span> class1)</span>
+<span id="cb12-107"><a href="#cb12-107"></a>        <span class="co"># select highest frequency fam/class/order combo</span></span>
+<span id="cb12-108"><a href="#cb12-108"></a>        fam2 <span class="ot">=</span> <span class="fu">as.data.frame</span>(<span class="fu">table</span>(datfam[, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">4</span>)]))</span>
+<span id="cb12-109"><a href="#cb12-109"></a>        family2 <span class="ot">=</span> <span class="fu">as.vector</span>(fam2[fam2<span class="sc">$</span>Freq <span class="sc">==</span> <span class="fu">max</span>(fam2<span class="sc">$</span>Freq, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb12-110"><a href="#cb12-110"></a>            <span class="st">&quot;fam1&quot;</span>])</span>
+<span id="cb12-111"><a href="#cb12-111"></a>        order2 <span class="ot">=</span> <span class="fu">as.vector</span>(fam2[fam2<span class="sc">$</span>Freq <span class="sc">==</span> <span class="fu">max</span>(fam2<span class="sc">$</span>Freq, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb12-112"><a href="#cb12-112"></a>            <span class="st">&quot;order1&quot;</span>])</span>
+<span id="cb12-113"><a href="#cb12-113"></a>        class2 <span class="ot">=</span> <span class="fu">as.vector</span>(fam2[fam2<span class="sc">$</span>Freq <span class="sc">==</span> <span class="fu">max</span>(fam2<span class="sc">$</span>Freq, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb12-114"><a href="#cb12-114"></a>            <span class="st">&quot;class1&quot;</span>])</span>
+<span id="cb12-115"><a href="#cb12-115"></a>        <span class="co"># select highest in list if more than one max</span></span>
+<span id="cb12-116"><a href="#cb12-116"></a>        <span class="cf">if</span> (<span class="fu">length</span>(family2) <span class="sc">&gt;</span> <span class="dv">1</span>) {</span>
+<span id="cb12-117"><a href="#cb12-117"></a>            datfam2 <span class="ot">=</span> datfam[datfam<span class="sc">$</span>fam1 <span class="sc">%in%</span> family2, ]</span>
+<span id="cb12-118"><a href="#cb12-118"></a>            family2 <span class="ot">=</span> <span class="fu">as.vector</span>(datfam2[datfam2<span class="sc">$</span>order <span class="sc">==</span> <span class="fu">min</span>(datfam2<span class="sc">$</span>order,</span>
+<span id="cb12-119"><a href="#cb12-119"></a>                <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="st">&quot;fam1&quot;</span>])</span>
+<span id="cb12-120"><a href="#cb12-120"></a>            order2 <span class="ot">=</span> <span class="fu">as.vector</span>(datfam2[datfam2<span class="sc">$</span>order <span class="sc">==</span> <span class="fu">min</span>(datfam2<span class="sc">$</span>order,</span>
+<span id="cb12-121"><a href="#cb12-121"></a>                <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="st">&quot;order1&quot;</span>])</span>
+<span id="cb12-122"><a href="#cb12-122"></a>            class2 <span class="ot">=</span> <span class="fu">as.vector</span>(datfam2[datfam2<span class="sc">$</span>order <span class="sc">==</span> <span class="fu">min</span>(datfam2<span class="sc">$</span>order,</span>
+<span id="cb12-123"><a href="#cb12-123"></a>                <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="st">&quot;class1&quot;</span>])</span>
+<span id="cb12-124"><a href="#cb12-124"></a>        }</span>
+<span id="cb12-125"><a href="#cb12-125"></a>    }</span>
+<span id="cb12-126"><a href="#cb12-126"></a></span>
+<span id="cb12-127"><a href="#cb12-127"></a>    <span class="co"># (4) search for species synonyms in ITIS</span></span>
+<span id="cb12-128"><a href="#cb12-128"></a>    syns <span class="ot">=</span> <span class="fu">tryCatch</span>(<span class="fu">suppressMessages</span>(<span class="fu">synonyms</span>(taxa, <span class="at">db =</span> <span class="st">&quot;itis&quot;</span>)),</span>
+<span id="cb12-129"><a href="#cb12-129"></a>        <span class="at">error =</span> <span class="cf">function</span>(e) e)</span>
+<span id="cb12-130"><a href="#cb12-130"></a>    <span class="cf">if</span> (<span class="fu">class</span>(syns)[<span class="dv">1</span>] <span class="sc">==</span> <span class="st">&quot;simpleError&quot;</span>) {</span>
+<span id="cb12-131"><a href="#cb12-131"></a>        <span class="fu">return</span>(<span class="fu">data.frame</span>(<span class="at">Original =</span> taxname, <span class="at">Submitted =</span> taxa, <span class="at">Accepted_name =</span> <span class="st">&quot;failed&quot;</span>,</span>
+<span id="cb12-132"><a href="#cb12-132"></a>            <span class="at">Selected_family =</span> family2, <span class="at">Selected_order =</span> order2, <span class="at">Selected_class =</span> class2,</span>
+<span id="cb12-133"><a href="#cb12-133"></a>            <span class="at">Synonyms =</span> <span class="st">&quot;failed&quot;</span>))</span>
+<span id="cb12-134"><a href="#cb12-134"></a>    }</span>
+<span id="cb12-135"><a href="#cb12-135"></a>    syns <span class="ot">=</span> <span class="fu">as.data.frame</span>(syns[[<span class="dv">1</span>]])</span>
+<span id="cb12-136"><a href="#cb12-136"></a></span>
+<span id="cb12-137"><a href="#cb12-137"></a>    <span class="co"># get info</span></span>
+<span id="cb12-138"><a href="#cb12-138"></a>    original <span class="ot">=</span> taxa</span>
+<span id="cb12-139"><a href="#cb12-139"></a>    accepted_name <span class="ot">=</span> taxa  <span class="co"># save accepted name as original searched name</span></span>
+<span id="cb12-140"><a href="#cb12-140"></a>    <span class="cf">if</span> (<span class="st">&quot;acc_name&quot;</span> <span class="sc">%in%</span> <span class="fu">names</span>(syns))</span>
+<span id="cb12-141"><a href="#cb12-141"></a>        {</span>
+<span id="cb12-142"><a href="#cb12-142"></a>            accepted_name <span class="ot">=</span> syns<span class="sc">$</span>acc_name</span>
+<span id="cb12-143"><a href="#cb12-143"></a>        }  <span class="co"># unless search shows that this is not the accepted name</span></span>
+<span id="cb12-144"><a href="#cb12-144"></a>    <span class="cf">if</span> (<span class="st">&quot;syn_name&quot;</span> <span class="sc">%in%</span> <span class="fu">names</span>(syns)) {</span>
+<span id="cb12-145"><a href="#cb12-145"></a>        synonyms <span class="ot">=</span> <span class="fu">unique</span>(syns<span class="sc">$</span>syn_name)</span>
+<span id="cb12-146"><a href="#cb12-146"></a>    } <span class="cf">else</span> {</span>
+<span id="cb12-147"><a href="#cb12-147"></a>        synonyms <span class="ot">=</span> <span class="cn">NA</span></span>
+<span id="cb12-148"><a href="#cb12-148"></a>    }</span>
+<span id="cb12-149"><a href="#cb12-149"></a></span>
+<span id="cb12-150"><a href="#cb12-150"></a>    <span class="co"># combine into list and add synonyms</span></span>
+<span id="cb12-151"><a href="#cb12-151"></a>    result <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">Original =</span> taxname, <span class="at">Submitted =</span> taxa, <span class="at">Accepted_name =</span> accepted_name,</span>
+<span id="cb12-152"><a href="#cb12-152"></a>        <span class="at">Selected_family =</span> family2, <span class="at">Selected_order =</span> order2, <span class="at">Selected_class =</span> class2)</span>
+<span id="cb12-153"><a href="#cb12-153"></a>    result <span class="ot">=</span> <span class="fu">do.call</span>(<span class="st">&quot;rbind&quot;</span>, <span class="fu">replicate</span>(<span class="fu">length</span>(synonyms), result[<span class="dv">1</span>,</span>
+<span id="cb12-154"><a href="#cb12-154"></a>        ], <span class="at">simplify =</span> <span class="cn">FALSE</span>))</span>
+<span id="cb12-155"><a href="#cb12-155"></a>    result<span class="sc">$</span>Synonyms <span class="ot">=</span> synonyms</span>
+<span id="cb12-156"><a href="#cb12-156"></a>    <span class="fu">return</span>(result)</span>
+<span id="cb12-157"><a href="#cb12-157"></a>}</span>
+<span id="cb12-158"><a href="#cb12-158"></a></span>
+<span id="cb12-159"><a href="#cb12-159"></a><span class="co"># nest function within a tryCatch call in case of any errors</span></span>
+<span id="cb12-160"><a href="#cb12-160"></a>findSyns3 <span class="ot">=</span> <span class="cf">function</span>(x) {</span>
+<span id="cb12-161"><a href="#cb12-161"></a>    result <span class="ot">=</span> <span class="fu">tryCatch</span>(<span class="fu">findSyns2</span>(x), <span class="at">error =</span> <span class="cf">function</span>(e) <span class="cn">NULL</span>)</span>
+<span id="cb12-162"><a href="#cb12-162"></a>    <span class="fu">return</span>(result)</span>
+<span id="cb12-163"><a href="#cb12-163"></a>}</span></code></pre></div>
+<p>Antes vimos que hay un nombre que es sinónimo de <em>Ramphocelus
+sanguinolentus</em> ¿qué haría la función de Gibb et al con ese?</p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>Ram.syn1 <span class="ot">&lt;-</span> <span class="fu">findSyns3</span>(<span class="st">&quot;Phlogothraupis sanguinolenta&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;Processing: Phlogothraupis sanguinolenta&quot;
+## ══  1 queries  ═══════════════
+## ✓  Found:  Phlogothraupis sanguinolenta
+## ══  Results  ═════════════════
+## 
+## • Total: 1 
+## • Found: 1 
+## • Not Found: 0</code></pre>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>Ram.syn1 <span class="sc">%&gt;%</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a>    <span class="fu">kbl</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb15-3"><a href="#cb15-3"></a>    <span class="fu">kable_minimal</span>()</span></code></pre></div>
+<table class=" lightable-minimal" style="font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Original
+</th>
+<th style="text-align:left;">
+Submitted
+</th>
+<th style="text-align:left;">
+Accepted_name
+</th>
+<th style="text-align:left;">
+Selected_family
+</th>
+<th style="text-align:left;">
+Selected_order
+</th>
+<th style="text-align:left;">
+Selected_class
+</th>
+<th style="text-align:left;">
+Synonyms
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Phlogothraupis sanguinolenta
+</td>
+<td style="text-align:left;">
+Phlogothraupis sanguinolenta
+</td>
+<td style="text-align:left;">
+Ramphocelus sanguinolentus
+</td>
+<td style="text-align:left;">
+Thraupidae
+</td>
+<td style="text-align:left;">
+Passeriformes
+</td>
+<td style="text-align:left;">
+Aves
+</td>
+<td style="text-align:left;">
+Phlogothraupis sanguinolenta
+</td>
+</tr>
+</tbody>
+</table>
+<p>¿Y con uno que está mal escrito?</p>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>Ram.syn2 <span class="ot">&lt;-</span> <span class="fu">findSyns3</span>(Ram.names2[<span class="dv">2</span>])</span></code></pre></div>
+<pre><code>## [1] &quot;Processing: Ramphocelus passerini&quot;
+## ══  1 queries  ═══════════════
+## ✓  Found:  Ramphocelus passerinii
+## ══  Results  ═════════════════
+## 
+## • Total: 1 
+## • Found: 1 
+## • Not Found: 0</code></pre>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>Ram.syn2 <span class="sc">%&gt;%</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a>    <span class="fu">kbl</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb18-3"><a href="#cb18-3"></a>    <span class="fu">kable_minimal</span>()</span></code></pre></div>
+<table class=" lightable-minimal" style="font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Original
+</th>
+<th style="text-align:left;">
+Submitted
+</th>
+<th style="text-align:left;">
+Accepted_name
+</th>
+<th style="text-align:left;">
+Selected_family
+</th>
+<th style="text-align:left;">
+Selected_order
+</th>
+<th style="text-align:left;">
+Selected_class
+</th>
+<th style="text-align:left;">
+Synonyms
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Ramphocelus passerini
+</td>
+<td style="text-align:left;">
+Ramphocelus passerinii
+</td>
+<td style="text-align:left;">
+Ramphocelus passerinii
+</td>
+<td style="text-align:left;">
+Thraupidae
+</td>
+<td style="text-align:left;">
+Passeriformes
+</td>
+<td style="text-align:left;">
+Aves
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="manejo-de-datos-de-cámaras-trampa" class="section level3">
+<h3>Manejo de datos de cámaras trampa</h3>
+<p align="center">
+<img src="images/camtrapR.png" />
+<p align="center">
+<font size="2"> Artículo de <a
+href="https://besjournals.onlinelibrary.wiley.com/doi/pdf/10.1111/2041-210X.12600">Niedballa
+et al. 2016,Methods Ecol. Evol.</a>
+</p>
+<p><strong>De la sección de métodos:</strong></p>
+<p><em>“Users are free to use any species names (or abbreviations or
+codes) they wish. If scientific or common species names are used, <span
+style="color: #32CD32;">the function checkSpeciesNames can check them
+against the ITIS taxonomic database (www.itis.gov) and returns their
+matching counterparts (utilizing the R package taxize (Chamberlain &amp;
+Szöcs 2013) internally)</span>, making sure species names and spelling
+are standardized and taxonomically sound, and thus making it easier to
+combine data sets from different studies.”</em></p>
+<p>Veamos algunos ejemplos del las viñetas de camtrapR. No vamos a bajar
+el paquete, porque la versión de CRAN de ‘camtrapR’ no es compatible con
+la versión de CRAN de ‘taxize’</p>
+<p align="center">
+<img src="images/facepalm.jpg" style="width:50.0%" />
+</p>
+<p>Vamos a reescribir la función actualizando los argumentos de
+‘taxize’</p>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>checkSpeciesNames <span class="ot">&lt;-</span> <span class="cf">function</span>(speciesNames, searchtype, <span class="at">accepted =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb19-2"><a href="#cb19-2"></a>    <span class="at">ask =</span> <span class="cn">TRUE</span>) {</span>
+<span id="cb19-3"><a href="#cb19-3"></a>    <span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">&quot;taxize&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb19-4"><a href="#cb19-4"></a>        <span class="fu">stop</span>(<span class="st">&quot;Please install the package taxize to run this function&quot;</span>)</span>
+<span id="cb19-5"><a href="#cb19-5"></a>    }</span>
+<span id="cb19-6"><a href="#cb19-6"></a>    <span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">&quot;ritis&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb19-7"><a href="#cb19-7"></a>        <span class="fu">stop</span>(<span class="st">&quot;Please install the package ritis to run this function&quot;</span>)</span>
+<span id="cb19-8"><a href="#cb19-8"></a>    }</span>
+<span id="cb19-9"><a href="#cb19-9"></a>    searchtype <span class="ot">&lt;-</span> <span class="fu">match.arg</span>(searchtype, <span class="at">choices =</span> <span class="fu">c</span>(<span class="st">&quot;scientific&quot;</span>,</span>
+<span id="cb19-10"><a href="#cb19-10"></a>        <span class="st">&quot;common&quot;</span>))</span>
+<span id="cb19-11"><a href="#cb19-11"></a>    <span class="fu">stopifnot</span>(<span class="fu">is.logical</span>(accepted))</span>
+<span id="cb19-12"><a href="#cb19-12"></a>    <span class="fu">stopifnot</span>(<span class="fu">is.character</span>(speciesNames) <span class="sc">|</span> <span class="fu">is.factor</span>(speciesNames))</span>
+<span id="cb19-13"><a href="#cb19-13"></a>    speciesNames <span class="ot">&lt;-</span> <span class="fu">unique</span>(<span class="fu">as.character</span>(speciesNames))</span>
+<span id="cb19-14"><a href="#cb19-14"></a>    file.sep <span class="ot">&lt;-</span> .Platform<span class="sc">$</span>file.sep</span>
+<span id="cb19-15"><a href="#cb19-15"></a>    tsns <span class="ot">&lt;-</span> <span class="fu">try</span>(taxize<span class="sc">::</span><span class="fu">get_tsn</span>(<span class="at">sci_com =</span> speciesNames, <span class="at">searchtype =</span> searchtype,</span>
+<span id="cb19-16"><a href="#cb19-16"></a>        <span class="at">accepted =</span> accepted, <span class="at">ask =</span> ask, <span class="at">messages =</span> <span class="cn">FALSE</span>))</span>
+<span id="cb19-17"><a href="#cb19-17"></a>    <span class="cf">if</span> (<span class="fu">inherits</span>(tsns, <span class="st">&quot;try-error&quot;</span>)) {</span>
+<span id="cb19-18"><a href="#cb19-18"></a>        <span class="fu">message</span>(<span class="fu">paste</span>(<span class="st">&quot;error in get_tsn. Exiting without results:</span><span class="sc">\n</span><span class="st">&quot;</span>,</span>
+<span id="cb19-19"><a href="#cb19-19"></a>            tsns, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>))</span>
+<span id="cb19-20"><a href="#cb19-20"></a>        <span class="fu">return</span>(<span class="fu">invisible</span>(<span class="cn">NULL</span>))</span>
+<span id="cb19-21"><a href="#cb19-21"></a>    }</span>
+<span id="cb19-22"><a href="#cb19-22"></a>    tsns <span class="ot">&lt;-</span> taxize<span class="sc">::</span><span class="fu">as.tsn</span>(<span class="fu">unique</span>(tsns), <span class="at">check =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb19-23"><a href="#cb19-23"></a>    <span class="cf">if</span> (<span class="fu">any</span>(<span class="fu">is.na</span>(tsns))) {</span>
+<span id="cb19-24"><a href="#cb19-24"></a>        not.matched <span class="ot">&lt;-</span> <span class="fu">which</span>(<span class="fu">is.na</span>(tsns))</span>
+<span id="cb19-25"><a href="#cb19-25"></a>        <span class="fu">warning</span>(<span class="fu">paste</span>(<span class="st">&quot;found no matches for&quot;</span>, <span class="fu">length</span>(not.matched),</span>
+<span id="cb19-26"><a href="#cb19-26"></a>            <span class="st">&quot;name(s):</span><span class="sc">\n</span><span class="st">&quot;</span>, <span class="fu">paste</span>(speciesNames[not.matched], <span class="at">collapse =</span> <span class="st">&quot;, &quot;</span>)),</span>
+<span id="cb19-27"><a href="#cb19-27"></a>            <span class="at">immediate. =</span> <span class="cn">TRUE</span>, <span class="at">call. =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb19-28"><a href="#cb19-28"></a>        tsns_worked <span class="ot">&lt;-</span> taxize<span class="sc">::</span><span class="fu">as.tsn</span>(tsns[<span class="sc">-</span>not.matched], <span class="at">check =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb19-29"><a href="#cb19-29"></a>    } <span class="cf">else</span> {</span>
+<span id="cb19-30"><a href="#cb19-30"></a>        tsns_worked <span class="ot">&lt;-</span> tsns</span>
+<span id="cb19-31"><a href="#cb19-31"></a>    }</span>
+<span id="cb19-32"><a href="#cb19-32"></a>    <span class="cf">if</span> (<span class="fu">length</span>(tsns_worked) <span class="sc">&gt;=</span> <span class="dv">1</span>) {</span>
+<span id="cb19-33"><a href="#cb19-33"></a>        scientific <span class="ot">&lt;-</span> common <span class="ot">&lt;-</span> author <span class="ot">&lt;-</span> rankname <span class="ot">&lt;-</span> taxon_status <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">matrix</span>(<span class="cn">NA</span>,</span>
+<span id="cb19-34"><a href="#cb19-34"></a>            <span class="at">nrow =</span> <span class="fu">length</span>(tsns_worked), <span class="at">ncol =</span> <span class="dv">2</span>), <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb19-35"><a href="#cb19-35"></a>        <span class="fu">colnames</span>(scientific) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;tsn&quot;</span>, <span class="st">&quot;combinedname&quot;</span>)</span>
+<span id="cb19-36"><a href="#cb19-36"></a>        <span class="fu">colnames</span>(common) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;tsn&quot;</span>, <span class="st">&quot;commonName&quot;</span>)</span>
+<span id="cb19-37"><a href="#cb19-37"></a>        <span class="fu">colnames</span>(author) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;tsn&quot;</span>, <span class="st">&quot;authorship&quot;</span>)</span>
+<span id="cb19-38"><a href="#cb19-38"></a>        <span class="fu">colnames</span>(rankname) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;tsn&quot;</span>, <span class="st">&quot;rankname&quot;</span>)</span>
+<span id="cb19-39"><a href="#cb19-39"></a>        <span class="fu">colnames</span>(taxon_status) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;tsn&quot;</span>, <span class="st">&quot;taxonUsageRating&quot;</span>)</span>
+<span id="cb19-40"><a href="#cb19-40"></a>        <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(tsns_worked)) {</span>
+<span id="cb19-41"><a href="#cb19-41"></a>            scientific_tmp <span class="ot">&lt;-</span> ritis<span class="sc">::</span><span class="fu">scientific_name</span>(tsns_worked[i])</span>
+<span id="cb19-42"><a href="#cb19-42"></a>            common_tmp <span class="ot">&lt;-</span> ritis<span class="sc">::</span><span class="fu">common_names</span>(tsns_worked[i])</span>
+<span id="cb19-43"><a href="#cb19-43"></a>            author_tmp <span class="ot">&lt;-</span> ritis<span class="sc">::</span><span class="fu">taxon_authorship</span>(tsns_worked[i])</span>
+<span id="cb19-44"><a href="#cb19-44"></a>            rankname_tmp <span class="ot">&lt;-</span> ritis<span class="sc">::</span><span class="fu">rank_name</span>(tsns_worked[i])</span>
+<span id="cb19-45"><a href="#cb19-45"></a>            <span class="cf">if</span> (<span class="st">&quot;tsn&quot;</span> <span class="sc">%in%</span> <span class="fu">colnames</span>(scientific_tmp)) {</span>
+<span id="cb19-46"><a href="#cb19-46"></a>                scientific[i, ] <span class="ot">&lt;-</span> scientific_tmp[<span class="fu">c</span>(<span class="st">&quot;tsn&quot;</span>, <span class="st">&quot;combinedname&quot;</span>)]</span>
+<span id="cb19-47"><a href="#cb19-47"></a>            }</span>
+<span id="cb19-48"><a href="#cb19-48"></a>            <span class="cf">if</span> (<span class="st">&quot;tsn&quot;</span> <span class="sc">%in%</span> <span class="fu">colnames</span>(common_tmp)) {</span>
+<span id="cb19-49"><a href="#cb19-49"></a>                <span class="cf">if</span> (<span class="fu">table</span>(common_tmp<span class="sc">$</span>tsn) <span class="sc">&gt;</span> <span class="dv">1</span>) {</span>
+<span id="cb19-50"><a href="#cb19-50"></a>                  common2 <span class="ot">&lt;-</span> <span class="fu">tapply</span>(common_tmp<span class="sc">$</span>commonName, <span class="at">INDEX =</span> common_tmp<span class="sc">$</span>tsn,</span>
+<span id="cb19-51"><a href="#cb19-51"></a>                    <span class="at">FUN =</span> paste, <span class="at">collapse =</span> file.sep)</span>
+<span id="cb19-52"><a href="#cb19-52"></a>                  common_tmp <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">commonName =</span> common2, <span class="at">tsn =</span> <span class="fu">rownames</span>(common2),</span>
+<span id="cb19-53"><a href="#cb19-53"></a>                    <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb19-54"><a href="#cb19-54"></a>                }</span>
+<span id="cb19-55"><a href="#cb19-55"></a>                common[i, ] <span class="ot">&lt;-</span> common_tmp[, <span class="fu">c</span>(<span class="st">&quot;tsn&quot;</span>, <span class="st">&quot;commonName&quot;</span>)]</span>
+<span id="cb19-56"><a href="#cb19-56"></a>            }</span>
+<span id="cb19-57"><a href="#cb19-57"></a>            <span class="cf">if</span> (<span class="st">&quot;tsn&quot;</span> <span class="sc">%in%</span> <span class="fu">colnames</span>(author_tmp)) {</span>
+<span id="cb19-58"><a href="#cb19-58"></a>                author[i, ] <span class="ot">&lt;-</span> author_tmp[<span class="fu">c</span>(<span class="st">&quot;tsn&quot;</span>, <span class="st">&quot;authorship&quot;</span>)]</span>
+<span id="cb19-59"><a href="#cb19-59"></a>            }</span>
+<span id="cb19-60"><a href="#cb19-60"></a>            <span class="cf">if</span> (<span class="st">&quot;tsn&quot;</span> <span class="sc">%in%</span> <span class="fu">colnames</span>(rankname_tmp)) {</span>
+<span id="cb19-61"><a href="#cb19-61"></a>                rankname[i, ] <span class="ot">&lt;-</span> rankname_tmp[<span class="fu">c</span>(<span class="st">&quot;tsn&quot;</span>, <span class="st">&quot;rankname&quot;</span>)]</span>
+<span id="cb19-62"><a href="#cb19-62"></a>            }</span>
+<span id="cb19-63"><a href="#cb19-63"></a>            <span class="cf">if</span> (accepted <span class="sc">==</span> <span class="cn">FALSE</span>) {</span>
+<span id="cb19-64"><a href="#cb19-64"></a>                taxon_status_tmp <span class="ot">&lt;-</span> ritis<span class="sc">::</span><span class="fu">core_metadata</span>(tsns_worked[i])</span>
+<span id="cb19-65"><a href="#cb19-65"></a>                <span class="cf">if</span> (<span class="st">&quot;tsn&quot;</span> <span class="sc">%in%</span> <span class="fu">colnames</span>(taxon_status_tmp)) {</span>
+<span id="cb19-66"><a href="#cb19-66"></a>                  taxon_status[i, ] <span class="ot">&lt;-</span> taxon_status_tmp[<span class="fu">c</span>(<span class="st">&quot;tsn&quot;</span>, <span class="st">&quot;taxonUsageRating&quot;</span>)]</span>
+<span id="cb19-67"><a href="#cb19-67"></a>                }</span>
+<span id="cb19-68"><a href="#cb19-68"></a>            }</span>
+<span id="cb19-69"><a href="#cb19-69"></a>        }</span>
+<span id="cb19-70"><a href="#cb19-70"></a>        dat.out <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">user_name =</span> speciesNames, <span class="at">tsn =</span> <span class="fu">as.numeric</span>(tsns))</span>
+<span id="cb19-71"><a href="#cb19-71"></a>        dat.out <span class="ot">&lt;-</span> <span class="fu">merge</span>(<span class="at">x =</span> dat.out, <span class="at">y =</span> scientific, <span class="at">by =</span> <span class="st">&quot;tsn&quot;</span>,</span>
+<span id="cb19-72"><a href="#cb19-72"></a>            <span class="at">all.x =</span> <span class="cn">TRUE</span>, <span class="at">sort =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb19-73"><a href="#cb19-73"></a>        dat.out <span class="ot">&lt;-</span> <span class="fu">merge</span>(<span class="at">x =</span> dat.out, <span class="at">y =</span> common, <span class="at">by =</span> <span class="st">&quot;tsn&quot;</span>, <span class="at">all.x =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb19-74"><a href="#cb19-74"></a>            <span class="at">sort =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb19-75"><a href="#cb19-75"></a>        dat.out <span class="ot">&lt;-</span> <span class="fu">merge</span>(<span class="at">x =</span> dat.out, <span class="at">y =</span> author, <span class="at">by =</span> <span class="st">&quot;tsn&quot;</span>, <span class="at">all.x =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb19-76"><a href="#cb19-76"></a>            <span class="at">sort =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb19-77"><a href="#cb19-77"></a>        dat.out <span class="ot">&lt;-</span> <span class="fu">merge</span>(<span class="at">x =</span> dat.out, <span class="at">y =</span> rankname, <span class="at">by =</span> <span class="st">&quot;tsn&quot;</span>, <span class="at">all.x =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb19-78"><a href="#cb19-78"></a>            <span class="at">sort =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb19-79"><a href="#cb19-79"></a>        dat.out<span class="sc">$</span>itis_url <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb19-80"><a href="#cb19-80"></a>        dat.out<span class="sc">$</span>itis_url[<span class="fu">match</span>(tsns_worked, dat.out<span class="sc">$</span>tsn)] <span class="ot">&lt;-</span> <span class="fu">attributes</span>(tsns_worked)<span class="sc">$</span>uri</span>
+<span id="cb19-81"><a href="#cb19-81"></a>        <span class="fu">colnames</span>(dat.out)[<span class="fu">colnames</span>(dat.out) <span class="sc">==</span> <span class="st">&quot;combinedname&quot;</span>] <span class="ot">&lt;-</span> <span class="st">&quot;scientificName&quot;</span></span>
+<span id="cb19-82"><a href="#cb19-82"></a>        <span class="cf">if</span> (accepted <span class="sc">==</span> <span class="cn">FALSE</span>) {</span>
+<span id="cb19-83"><a href="#cb19-83"></a>            dat.out <span class="ot">&lt;-</span> <span class="fu">merge</span>(<span class="at">x =</span> dat.out, <span class="at">y =</span> taxon_status, <span class="at">by =</span> <span class="st">&quot;tsn&quot;</span>,</span>
+<span id="cb19-84"><a href="#cb19-84"></a>                <span class="at">all.x =</span> <span class="cn">TRUE</span>, <span class="at">sort =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb19-85"><a href="#cb19-85"></a>        } <span class="cf">else</span> {</span>
+<span id="cb19-86"><a href="#cb19-86"></a>            dat.out<span class="sc">$</span>taxon_status[<span class="sc">!</span><span class="fu">is.na</span>(dat.out<span class="sc">$</span>tsn)] <span class="ot">&lt;-</span> <span class="st">&quot;valid&quot;</span></span>
+<span id="cb19-87"><a href="#cb19-87"></a>        }</span>
+<span id="cb19-88"><a href="#cb19-88"></a>        <span class="fu">return</span>(dat.out)</span>
+<span id="cb19-89"><a href="#cb19-89"></a>    } <span class="cf">else</span> {</span>
+<span id="cb19-90"><a href="#cb19-90"></a>        <span class="fu">stop</span>(<span class="st">&quot;found no TSNs for speciesNames&quot;</span>, <span class="at">call. =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb19-91"><a href="#cb19-91"></a>    }</span>
+<span id="cb19-92"><a href="#cb19-92"></a>}</span></code></pre></div>
+<p>¡Ahora sí! ¿Qué podemos hacer?</p>
+<div id="buscar-información-con-nombres-comunes" class="section level4">
+<h4>Buscar información con nombres comunes</h4>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>checkNames1 <span class="ot">&lt;-</span> <span class="fu">checkSpeciesNames</span>(<span class="at">speciesNames =</span> <span class="fu">c</span>(<span class="st">&quot;Bearded Pig&quot;</span>, <span class="st">&quot;Malayan Civet&quot;</span>),</span>
+<span id="cb20-2"><a href="#cb20-2"></a>    <span class="at">searchtype =</span> <span class="st">&quot;common&quot;</span>)</span>
+<span id="cb20-3"><a href="#cb20-3"></a>checkNames1 <span class="sc">%&gt;%</span></span>
+<span id="cb20-4"><a href="#cb20-4"></a>    <span class="fu">kbl</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb20-5"><a href="#cb20-5"></a>    <span class="fu">kable_minimal</span>()</span></code></pre></div>
+<table class=" lightable-minimal" style="font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;">
+tsn
+</th>
+<th style="text-align:left;">
+user_name
+</th>
+<th style="text-align:left;">
+scientificName
+</th>
+<th style="text-align:left;">
+commonName
+</th>
+<th style="text-align:left;">
+authorship
+</th>
+<th style="text-align:left;">
+rankname
+</th>
+<th style="text-align:left;">
+itis_url
+</th>
+<th style="text-align:left;">
+taxon_status
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+625012
+</td>
+<td style="text-align:left;">
+Bearded Pig
+</td>
+<td style="text-align:left;">
+Sus barbatus
+</td>
+<td style="text-align:left;">
+bearded pig/Bearded Pig
+</td>
+<td style="text-align:left;">
+Müller, 1838
+</td>
+<td style="text-align:left;">
+Species
+</td>
+<td style="text-align:left;">
+<a
+href="https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&amp;search_value=625012"
+class="uri">https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&amp;search_value=625012</a>
+</td>
+<td style="text-align:left;">
+valid
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+622004
+</td>
+<td style="text-align:left;">
+Malayan Civet
+</td>
+<td style="text-align:left;">
+Viverra tangalunga
+</td>
+<td style="text-align:left;">
+Malayan Civet
+</td>
+<td style="text-align:left;">
+Gray, 1832
+</td>
+<td style="text-align:left;">
+Species
+</td>
+<td style="text-align:left;">
+<a
+href="https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&amp;search_value=622004"
+class="uri">https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&amp;search_value=622004</a>
+</td>
+<td style="text-align:left;">
+valid
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div
+id="buscar-información-con-nombres-científicos-incluyendo-subespecie"
+class="section level4">
+<h4>Buscar información con nombres científicos (incluyendo
+subespecie)</h4>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>checkNames2 <span class="ot">&lt;-</span> <span class="fu">checkSpeciesNames</span>(<span class="at">speciesNames =</span> <span class="st">&quot;Viverra tangalunga tangalunga&quot;</span>,</span>
+<span id="cb21-2"><a href="#cb21-2"></a>    <span class="at">searchtype =</span> <span class="st">&quot;scientific&quot;</span>)</span>
+<span id="cb21-3"><a href="#cb21-3"></a>checkNames2 <span class="sc">%&gt;%</span></span>
+<span id="cb21-4"><a href="#cb21-4"></a>    <span class="fu">kbl</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb21-5"><a href="#cb21-5"></a>    <span class="fu">kable_minimal</span>()</span></code></pre></div>
+<table class=" lightable-minimal" style="font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;">
+tsn
+</th>
+<th style="text-align:left;">
+user_name
+</th>
+<th style="text-align:left;">
+scientificName
+</th>
+<th style="text-align:left;">
+commonName
+</th>
+<th style="text-align:left;">
+authorship
+</th>
+<th style="text-align:left;">
+rankname
+</th>
+<th style="text-align:left;">
+itis_url
+</th>
+<th style="text-align:left;">
+taxon_status
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+726578
+</td>
+<td style="text-align:left;">
+Viverra tangalunga tangalunga
+</td>
+<td style="text-align:left;">
+Viverra tangalunga tangalunga
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+Gray, 1832
+</td>
+<td style="text-align:left;">
+Subspecies
+</td>
+<td style="text-align:left;">
+<a
+href="https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&amp;search_value=726578"
+class="uri">https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&amp;search_value=726578</a>
+</td>
+<td style="text-align:left;">
+valid
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="buscar-información-con-un-nombre-incorrecto"
+class="section level4">
+<h4>Buscar información con un nombre incorrecto</h4>
+<div class="sourceCode" id="cb22"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>checkNames3 <span class="ot">&lt;-</span> <span class="fu">checkSpeciesNames</span>(<span class="at">speciesNames =</span> <span class="st">&quot;Felis bengalensis&quot;</span>,</span>
+<span id="cb22-2"><a href="#cb22-2"></a>    <span class="at">searchtype =</span> <span class="st">&quot;scientific&quot;</span>, <span class="at">accepted =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb22-3"><a href="#cb22-3"></a>checkNames3 <span class="sc">%&gt;%</span></span>
+<span id="cb22-4"><a href="#cb22-4"></a>    <span class="fu">kbl</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb22-5"><a href="#cb22-5"></a>    <span class="fu">kable_minimal</span>()</span></code></pre></div>
+<table class=" lightable-minimal" style="font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;">
+tsn
+</th>
+<th style="text-align:left;">
+user_name
+</th>
+<th style="text-align:left;">
+scientificName
+</th>
+<th style="text-align:left;">
+commonName
+</th>
+<th style="text-align:left;">
+authorship
+</th>
+<th style="text-align:left;">
+rankname
+</th>
+<th style="text-align:left;">
+itis_url
+</th>
+<th style="text-align:left;">
+taxonUsageRating
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+183793
+</td>
+<td style="text-align:left;">
+Felis bengalensis
+</td>
+<td style="text-align:left;">
+Felis bengalensis
+</td>
+<td style="text-align:left;">
+leopard cat
+</td>
+<td style="text-align:left;">
+Kerr, 1792
+</td>
+<td style="text-align:left;">
+Species
+</td>
+<td style="text-align:left;">
+<a
+href="https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&amp;search_value=183793"
+class="uri">https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&amp;search_value=183793</a>
+</td>
+<td style="text-align:left;">
+invalid
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="buscar-información-con-un-nombre-ambiguo"
+class="section level4">
+<h4>Buscar información con un nombre ambiguo</h4>
+<div class="sourceCode" id="cb23"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>checkNames4 <span class="ot">&lt;-</span> <span class="fu">checkSpeciesNames</span>(<span class="at">speciesNames =</span> <span class="st">&quot;Chevrotain&quot;</span>, <span class="at">searchtype =</span> <span class="st">&quot;common&quot;</span>)</span>
+<span id="cb23-2"><a href="#cb23-2"></a><span class="co"># escoger del menu</span></span>
+<span id="cb23-3"><a href="#cb23-3"></a><span class="dv">1</span></span>
+<span id="cb23-4"><a href="#cb23-4"></a>checkNames4 <span class="sc">%&gt;%</span></span>
+<span id="cb23-5"><a href="#cb23-5"></a>    <span class="fu">kbl</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb23-6"><a href="#cb23-6"></a>    <span class="fu">kable_minimal</span>()</span></code></pre></div>
+<p>Información de la sesión</p>
+<div class="sourceCode" id="cb24"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
+<pre><code>## R version 4.1.0 (2021-05-18)
+## Platform: x86_64-pc-linux-gnu (64-bit)
+## Running under: Ubuntu 20.04.2 LTS
+## 
+## Matrix products: default
+## BLAS:   /usr/lib/x86_64-linux-gnu/atlas/libblas.so.3.10.3
+## LAPACK: /usr/lib/x86_64-linux-gnu/atlas/liblapack.so.3.10.3
+## 
+## locale:
+##  [1] LC_CTYPE=pt_BR.UTF-8       LC_NUMERIC=C              
+##  [3] LC_TIME=es_CR.UTF-8        LC_COLLATE=pt_BR.UTF-8    
+##  [5] LC_MONETARY=es_CR.UTF-8    LC_MESSAGES=pt_BR.UTF-8   
+##  [7] LC_PAPER=es_CR.UTF-8       LC_NAME=C                 
+##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+## [11] LC_MEASUREMENT=es_CR.UTF-8 LC_IDENTIFICATION=C       
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## other attached packages:
+## [1] plyr_1.8.6          rgbif_3.7.3         kableExtra_1.3.1   
+## [4] taxize_0.9.99       knitr_1.39          xaringanExtra_0.7.0
+## [7] emo_0.0.0.9000     
+## 
+## loaded via a namespace (and not attached):
+##  [1] Rcpp_1.0.9        lubridate_1.7.10  ape_5.5           lattice_0.20-44  
+##  [5] zoo_1.8-9         assertthat_0.2.1  digest_0.6.29     foreach_1.5.1    
+##  [9] utf8_1.2.2        R6_2.5.1          evaluate_0.15     httr_1.4.2       
+## [13] ggplot2_3.3.6     highr_0.9         pillar_1.8.0      rlang_1.0.5      
+## [17] lazyeval_0.2.2    curl_4.3.2        uuid_0.1-4        rstudioapi_0.13  
+## [21] data.table_1.14.0 whisker_0.4       jquerylib_0.1.4   oai_0.3.2        
+## [25] rmarkdown_2.16    urltools_1.7.3    webshot_0.5.2     stringr_1.4.0    
+## [29] triebeard_0.3.0   munsell_0.5.0     compiler_4.1.0    xfun_0.31        
+## [33] pkgconfig_2.0.3   conditionz_0.1.0  htmltools_0.5.3   tidyselect_1.1.1 
+## [37] solrium_1.2.0     tibble_3.1.8      httpcode_0.3.0    codetools_0.2-18 
+## [41] reshape_0.8.8     fansi_1.0.3       viridisLite_0.4.0 dplyr_1.0.7      
+## [45] crayon_1.5.1      crul_1.1.0        grid_4.1.0        DBI_1.1.1        
+## [49] gtable_0.3.0      nlme_3.1-152      jsonlite_1.8.0    lifecycle_1.0.1  
+## [53] magrittr_2.0.3    formatR_1.11      scales_1.2.0      cli_3.3.0        
+## [57] stringi_1.7.8     xml2_1.3.2        bslib_0.2.5.1     generics_0.1.0   
+## [61] vctrs_0.4.1       iterators_1.0.13  tools_4.1.0       bold_1.2.0       
+## [65] glue_1.6.2        purrr_0.3.4       parallel_4.1.0    fastmap_1.1.0    
+## [69] yaml_2.3.5        colorspace_2.0-3  rvest_1.0.0       ritis_1.0.0      
+## [73] sass_0.4.0</code></pre>
+</div>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

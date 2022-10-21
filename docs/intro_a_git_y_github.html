@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>intro_a_git_y_github.knit</title>
+
+<script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/clipboard-2.0.6/clipboard.min.js"></script>
+<link href="site_libs/xaringanExtra-clipboard-0.2.6/xaringanExtra-clipboard.css" rel="stylesheet" />
+<script src="site_libs/xaringanExtra-clipboard-0.2.6/xaringanExtra-clipboard.js"></script>
+<script>window.xaringanExtraClipboard(null, {"button":"<i class=\"fa fa-clipboard\"><\/i>","success":"<i class=\"fa fa-check\" style=\"color: #90BE6D\"><\/i>","error":"<i class=\"fa fa-times-circle\" style=\"color: #F94144\"><\/i>"})</script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<link rel="stylesheet" href="extra.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Ciencia Reproducible</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Manuales
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="compendios_de_investigacion.html">Compendios de investigación</a>
+    </li>
+    <li>
+      <a href="reproducibilidad_en_taxonómica.html">Reproducibilidad en la taxonomía</a>
+    </li>
+    <li>
+      <a href="programacion_y_reproducibilidad.html">Programación y reproducibilidad</a>
+    </li>
+    <li>
+      <a href="intro_a_git_y_github.html">Control de versiones: git y github</a>
+    </li>
+    <li>
+      <a href="escribir_articulos_en_rmarkdown.html">Artículos en Rmarkdown</a>
+    </li>
+    <li>
+      <a href="trampas_estadisticas.html">Trampas estadísticas</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="preparacion_curso.html">Preparación para el curso</a>
+</li>
+<li>
+  <a href="https://codefile.io/f/XOIzH23KfULuZKyZ1TYT">Compartir código</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Tareas
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Tarea 1</li>
+    <li class="dropdown-header">Solución: tarea 1</li>
+    <li class="dropdown-header">Tarea 2</li>
+    <li class="dropdown-header">Solución: tarea 2</li>
+    <li class="dropdown-header">Tarea 3</li>
+    <li class="dropdown-header">Solución: tarea 3</li>
+    <li class="dropdown-header">Tarea 4</li>
+    <li class="dropdown-header">Solución: tarea4</li>
+  </ul>
+</li>
+<li>
+  <a href="https://github.com/maRce10/ciencia_reproducible/raw/master/additional_files/2022-10-14_Probl Esp Ecol_15_Herramientas-Practicas-Para-Ciencia-Reproducible.pdf">Programa del curso</a>
+</li>
+<li>
+  <a href="instructor.html">Instructor</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore"><center>
+<font size="6"><b>Introduccion a Git y Github</b></font>
+</center></h1>
+<h3 class="subtitle"><center>
+<font size="4"><b>Herramientas prácticas para investigación
+reproducible</b></font>
+</center></h3>
+<h4 class="author"><center>
+<font size="5"><a href="http://marceloarayasalas.weebly.com/">Marcelo
+Araya-Salas, PhD</a></font>
+</center></h4>
+<h4 class="date"><center>
+“2022-10-21”
+</center></h4>
+
+</div>
+
+
+<style>
+body
+  { counter-reset: source-line 0; }
+pre.numberSource code
+  { counter-reset: none; }
+</style>
+<p> </p>
+<div id="git-y-github" class="section level2">
+<h2>Git y Github</h2>
+<p>Git y <a href="github.com">GitHub</a> son herramientas diferentes
+pero complementarias para el desarrollo de proyectos de programación o
+afines. Git es una herramienta computacional de control de versiones que
+es usada prácticamente por todo el mundo. <a
+href="github.com">GitHub</a> puede ser descrito como la plataforma en
+linea para alojar proyectos de programación (i.e. código) mas popular.
+Sin embargo, esta definición es simplista: <a
+href="github.com">Github</a> ofrece muchísimas otras herramientas para
+facilitar la colaboración y publicación de proyectos relacionados con la
+programación.</p>
+<ul>
+<li>Git → control de versiones</li>
+<li>Github →repositorio en linea</li>
+</ul>
+<center>
+<img src="images/git-github.png" alt="git y github">
+</center>
+<hr />
+<p> </p>
+</div>
+<div id="git-control-de-versiones" class="section level2">
+<h2>Git: Control de versiones</h2>
+<p>Un sistema de control de versiones <strong>rastrea el historial de
+cambios</strong> a medida que las personas y los equipos colaboran en
+proyectos juntos. A medida que el proyecto evoluciona los equipos pueden
+ejecutar pruebas, corregir errores y aportar código nuevo con la
+confianza de que cualquier versión se puede recuperar en cualquier
+momento.</p>
+<center>
+<img src="images/version_control.png" alt="control de versiones" width="600">
+</center>
+<p style="font-size:11px">
+Tomado de Bryan 2018
+</p>
+<p>El control de versiones:</p>
+<ul>
+<li>Mantiene registro de los cambio realizados</li>
+<li>Facilita trabajo colaborativo</li>
+<li>Permite saber quien cambió que y cuando</li>
+<li>Permite revertir cambios</li>
+</ul>
+<p>Git no necesita una conexión permanente a un repositorio central y
+permite el trabajo asincrónico de los colaboradores.</p>
+<p> </p>
+<div id="como-instalar-git" class="section level3">
+<h3>Como instalar git</h3>
+<hr />
+<div id="instalar-git-en-linux" class="section level4">
+<h4>Instalar Git en Linux</h4>
+<p>Git se desarrolló originalmente en el sistema operativo Linux. Por lo
+tanto, tiene sentido que sea mas fácil de configurar para ejecutarse en
+Linux. Puede instalar Git en Linux a través de la herramienta de
+administración de paquetes que viene con su distribución:</p>
+<ul>
+<li>Los paquetes de Git están disponibles usando <code>apt</code></li>
+<li>Es una buena idea asegurarse de que está ejecutando la última
+versión. Para hacerlo, navegue hasta la terminal del símbolo del sistema
+y ejecute el siguiente comando para asegurarse de que todo esté
+actualizado: <code>sudo apt update</code></li>
+<li>Para instalar Git, ejecute el siguiente comando:
+<code>sudo apt install git-all</code></li>
+<li>Una vez que se haya completado la salida del comando, puede
+verificar la instalación escribiendo: <code>git version</code></li>
+</ul>
+<hr />
+</div>
+<div id="instalar-git-en-windows" class="section level4">
+<h4>Instalar Git en windows</h4>
+<ul>
+<li>Encuentre el último instalador de <a
+href="https://gitforwindows.org/">Git para Windows</a> y descargue la
+última versión</li>
+<li>Una vez que se haya iniciado el instalador, siga las instrucciones
+que se proporcionan en la pantalla del asistente de configuración de Git
+hasta que se complete la instalación</li>
+<li>Abra la terminal de windows o Git Bash</li>
+<li>Escriba la versión de git para verificar que se instaló Git
+(<code>git version</code>)</li>
+</ul>
+<div class="alert alert-warning">
+<p><em>Nota: git-scm es recomendado para descargar Git para windows. La
+ventaja de descargar Git desde git-scm es que usa la última versión de
+Git e incluye Git Bash.</em></p>
+</div>
+<hr />
+</div>
+<div id="instalar-git-en-mac" class="section level4">
+<h4>Instalar Git en mac</h4>
+<p>La mayoría de las versiones de macOS tienen Git instalado. Sin
+embargo, si no tiene Git instalado, se puede instalar la última versión
+de Git utilizando uno de estos métodos:</p>
+<div id="instalar-git-desde-un-instalador" class="section level5">
+<h5>Instalar Git desde un instalador</h5>
+<ul>
+<li>Corra <code>git --version</code> en la terminal, sin aun no está
+instalado se le brindará la opción de instalarlo</li>
+<li>Una vez que el instalador haya comenzado, siga las instrucciones que
+se proporcionan hasta que se complete la instalación</li>
+</ul>
+</div>
+<div id="instalar-git-desde-homebrew" class="section level5">
+<h5>Instalar Git desde Homebrew</h5>
+<p>Homebrew es un administrador de paquetes para macOS. Si ya tiene
+Homebrew instalado, puede seguir los pasos para instalar Git:</p>
+<ul>
+<li>Abra una ventana de terminal e instale Git usando el siguiente
+comando: <code>brew install git</code></li>
+<li>Una vez que se haya completado la salida del comando, puede
+verificar la instalación escribiendo: <code>git --version</code></li>
+</ul>
+<hr />
+<p> </p>
+</div>
+</div>
+</div>
+<div id="usando-git-para-control-de-versiones" class="section level3">
+<h3>Usando Git para control de versiones</h3>
+<p>Git se usa típicamente desde una terminal (consola donde se corre
+código). En windows se recomienda usar la consola de gitbash. En los
+sistemas operativos basados en Unix (macOS y Linux) se puede usar
+directamente desde la terminal por defecto.</p>
+<p> </p>
+<div id="pasos" class="section level4">
+<h4>Pasos</h4>
+<ol style="list-style-type: decimal">
+<li><strong>Configura tu identidad de Git</strong></li>
+</ol>
+<p>Git usa un nombre y una dirección de correo electrónico para
+identificar las confirmaciones (‘commits’) con un autor (i.e. rastrea
+qué persona está realizando qué cambios). Su identidad de Git no es la
+misma que su cuenta de <a href="github.com">GitHub</a> (pronto abajo
+hablaremos de <a href="github.com">GitHub</a>), aunque ambas deben usar
+la misma dirección de correo electrónico. Por lo general, solo necesita
+configurar su identidad de Git una vez por computadora.</p>
+<p>Así se puede definir su nombre de usuario en Git:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># definir nombre en git</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>git config <span class="sc">--</span>global user.name <span class="st">&quot;Su nombre&quot;</span></span></code></pre></div>
+<p>… y así se puede definir el correo electrónico:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># definir correo elec. en git</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>git config <span class="sc">--</span>global user.email <span class="st">&quot;su@email.com&quot;</span></span></code></pre></div>
+<p> </p>
+<ol start="2" style="list-style-type: decimal">
+<li><strong>Crear un repositorio local</strong></li>
+</ol>
+<p>“Dirijase” a la carpeta donde quiere mantener el repositorio
+(<code>cd</code>) e inicie el repositorio local (<code>git init</code>):
+¨</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># ejemplo de carpeta</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>cd <span class="sc">/</span>directorio<span class="sc">/</span>para<span class="sc">/</span>mi<span class="sc">/</span>repositorio</span>
+<span id="cb3-3"><a href="#cb3-3"></a></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="co"># iniciar repositorio local</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a>git init</span></code></pre></div>
+<p><code>git init</code> inicia un nuevo repositorio de Git y comienza a
+rastrear un directorio existente. Agrega una sub-carpeta oculta dentro
+del directorio existente que alberga la estructura de datos interna
+necesaria para el control de versiones.</p>
+<p> </p>
+<ol start="3" style="list-style-type: decimal">
+<li><strong>Añadir un nuevo archivo</strong></li>
+</ol>
+<p>Cree un nuevo archivo. Puede ser un archivo de .R o un archivo
+README.md que describa el nuevo repositorio (en este caso es solo un
+ejemplo). Ahora podemos usar <code>git status</code> para verificar el
+estado actual del proyecto:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># verificar estado</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a>git status</span></code></pre></div>
+<div class="alert alert-warning">
+<p><em>Nota: Git puede registrar cambios específicos dentro de un
+archivo cuando estos son archivos de texto (archivos no-binarios). Para
+archivos binarios solo el historial de versiones será
+rastreado.</em></p>
+</div>
+<p> </p>
+<ol start="4" style="list-style-type: decimal">
+<li><strong>Confirma cambios en Git</strong></li>
+</ol>
+<p>Para comenzar a rastrear un nuevo archivo se debe usar el siguiente
+comando:</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># empezar a rastrear un archivo</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a>git add nombre.de.archivo</span></code></pre></div>
+<p> </p>
+<p>Tambien podemos hacerlo para todos los nuevos archivos así:</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># empezar a rastrear todos lo nuevos archivos</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a>git add .</span></code></pre></div>
+<p> </p>
+<p>Cuando se ha empezado a rastrear un(os) archivo(s) se puede(n)
+confirmar los cambios en el historial de versiones del proyecto:</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># confirmar cambios</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a>git commit <span class="sc">-</span>m <span class="st">&quot;mensaje corto pero explicativo aqui&quot;</span></span></code></pre></div>
+<p> </p>
+<div class="alert alert-warning">
+<p><em>Un flujo de trabajo común es editar archivos en su proyecto,
+agregar los archivos que desea guardar usando el comando
+<code>git add</code> y luego tomar cofirmar los cambios del archivo
+usando el comando <code>git commit</code>. Tambien podemos usar
+<code>git status</code> para verificar el estado del proyecto.</em></p>
+</div>
+<ol start="5" style="list-style-type: decimal">
+<li><strong>Añadir ramas</strong></li>
+</ol>
+<ul>
+<li>Una forma limpia de hacer cambios es mantenerlos en un linea de
+desarrollo paralela mejor conocida como “rama” (“branch”)</li>
+<li>Tambien es la forma mas segura de trabajar en diferentes versiones
+de un repositorio a la vez</li>
+<li>De forma predeterminada el repositorio tiene una rama principal que
+se considera la rama con la version mas</li>
+<li>Usamos ramas para experimentar y hacer ediciones antes de enviarlas
+a la rama principal</li>
+<li>Las ramas pueden mantener versiones independientes del proyecto que
+luego pueden (o no) unirse a la rama principal</li>
+</ul>
+<center>
+<img src="images/branching.png" alt="ramas del repositorio github" width="800">
+</center>
+<p> </p>
+<p>El siguiente código crea una nueva rama y la activa:</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># añadir una rama</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a>git checkout <span class="sc">-</span>b nueva_rama</span></code></pre></div>
+<p> </p>
+<p>Ahora podemos hacer cambios en el proyecto sin afectar la rama
+principal. Una vez que se esta conforme con los cambios estos se pueden
+reintegrar a la rama principal:</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># volver a la rama principal</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a> git checkout master</span>
+<span id="cb9-3"><a href="#cb9-3"></a></span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="co"># integrar nueva rama</span></span>
+<span id="cb9-5"><a href="#cb9-5"></a>git merge nueva_rama</span></code></pre></div>
+<p> </p>
+<p>… y borrar la rama alterna:</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># borrar rama</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a>git branch <span class="sc">-</span>d nueva_rama</span></code></pre></div>
+<p> </p>
+<div class="alert alert-success">
+<p><strong>Comandos adicionales para monitorear el estado de proyecto en
+git</strong></p>
+<p> </p>
+<ul>
+<li><p><code>git log</code>: devuelve un historial de las confirmaciones
+(“commits”)</p></li>
+<li><p><code>git reflog</code>: permite visualizar los cambios (mas
+recientes) como las adiciones, confirmaciones y los cambios de
+rama</p></li>
+<li><p><code>git diff</code>: permite visualizar los cambios específicos
+en los archivos no-binarios (i.e. de texto)</p></li>
+<li><p><code>git reset</code>: devuelve la rama principal a un estado
+anterior</p></li>
+<li><p>Utilice <code>git --help</code> para ver una lista de otros
+comandos útiles para rastrear/modificar historiales</p></li>
+</ul>
+</div>
+<p> </p>
+<hr />
+</div>
+</div>
+<div id="usar-github-para-alojar-proyectos" class="section level3">
+<h3>Usar Github para alojar proyectos</h3>
+<p><a href="github.com">GitHub</a> es una plataforma para depositar
+código, hacer control de versiones y facilitar colaboraciones. Permite a
+los usuarios ordenar y guardar copias del código, así como colaborar en
+proyectos relacionados a programación de forma remota.</p>
+<div id="pasos-1" class="section level4">
+<h4>Pasos</h4>
+<ol style="list-style-type: decimal">
+<li><strong>Crear una cuenta en <a
+href="github.com">GitHub</a></strong></li>
+</ol>
+<ul>
+<li>Vaya a (esta dirección)[<a href="https://github.com/join"
+class="uri">https://github.com/join</a>] y haga clic en el botón “Crear
+una cuenta”</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li><strong>Crear un repositorio</strong></li>
+</ol>
+<ul>
+<li>En la esquina superior derecha, junto a su icono de identificación,
+haga clic en “+”y luego seleccione “Nuevo repositorio”</li>
+<li>Nombre el repositorio y escriba una breve descripción</li>
+<li>Seleccione “iniciar este repositorio con un archivo README”
+(optional pero recomendado)</li>
+</ul>
+<center>
+<img src="images/create-new-repo.png" alt="nuevo repositorio github" width="700">
+</center>
+<p> </p>
+<ol start="3" style="list-style-type: decimal">
+<li><strong>Crear una rama (“branch”)</strong></li>
+</ol>
+<ul>
+<li>Las ramas en <a href="github.com">GitHub</a> son equivalentes a las
+que creamos en Git y tienen la misma función: correr versiones paralelas
+de un proyecto</li>
+</ul>
+<center>
+<img src="images/nueva_rama.png" alt="ramas del repositorio github" width="400">
+</center>
+<p> </p>
+<ol start="4" style="list-style-type: decimal">
+<li><strong>Fusionar la rama secundaria</strong></li>
+</ol>
+<ul>
+<li>Para fusionar ramas se debe hacer una solicitud de adición (“pull
+request”)</li>
+<li>La solicitud de adición es una forma de alertar a la encargada de un
+repositorio de que desea realizar algunos cambios en su código</li>
+<li>La solicitud permite revisar el código y asegurarse de que se vea
+bien antes de incluir los cambios en la rama pirincipal. Una vez que se
+ha revisado la encargada puede decidir si acepta o no esos cambios
+(“merge”).</li>
+</ul>
+<p>Primero se debe solicitar una adición:</p>
+<center>
+<img src="images/pullrequest.png" alt="pull request" width="700">
+</center>
+<p> </p>
+Y luego de cerciorarse que no hay conflictos se pueden unir la rama
+paralela y la principal:
+<center>
+<img src="./images/mergebutton.png" alt="pull request" width="700">
+</center>
+<p> </p>
+<p> </p>
+</div>
+</div>
+<div id="git-github" class="section level3">
+<h3>Git + GitHub</h3>
+<ul>
+<li>Los repositorios locales manejados con Git se pueden alojar y/o
+sincronizar con repositorios remotos alojados en <a
+href="github.com">GitHub</a></li>
+<li>Esta combinación de herramientas es particularmente útil para
+colaboraciones de forma remota y para compartir código con la
+comunidad</li>
+</ul>
+<p> </p>
+<center>
+<img src="images/distributed.png" alt="pull request" width="400">
+</center>
+<p> </p>
+<div id="pasos-2" class="section level4">
+<h4>Pasos</h4>
+<ol style="list-style-type: decimal">
+<li><strong>Clone el repositorio localmente</strong></li>
+</ol>
+<ul>
+<li>Este paso se hace usando git en su computador</li>
+<li><code>git clone</code> crea una copia local de un proyecto que ya
+existe de forma remota</li>
+<li>El clon incluye todos los archivos, el historial y las ramas del
+proyecto</li>
+<li>Podemos usar el repositorio del curso como ejemplo: <a
+href="https://github.com/maRce10/curso_reproducible"
+class="uri">https://github.com/maRce10/curso_reproducible</a></li>
+<li>Primero debemos copiar la dirección https del repositorio (<a
+href="https://github.com/maRce10/curso_reproducible.git"
+class="uri">https://github.com/maRce10/curso_reproducible.git</a>)</li>
+</ul>
+<p> </p>
+<center>
+<img src="images/clone.png" alt="pull request" width="600">
+</center>
+<p> </p>
+<ul>
+<li>Y luego corremos <code>git clone</code> localmente:</li>
+</ul>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># clonar repositorio remoto</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a>git clone https<span class="sc">:</span><span class="er">//</span>github.com<span class="sc">/</span>maRce10<span class="sc">/</span>curso_reproducible.git</span></code></pre></div>
+<p> </p>
+<ol start="2" style="list-style-type: decimal">
+<li><strong>Defina el repositorio remoto localmente</strong></li>
+</ol>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># entrar a la carpeta</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a>cd .<span class="sc">/</span>curso_reproducible</span>
+<span id="cb12-3"><a href="#cb12-3"></a></span>
+<span id="cb12-4"><a href="#cb12-4"></a><span class="co"># inicie el repositorio en git</span></span>
+<span id="cb12-5"><a href="#cb12-5"></a>git init</span>
+<span id="cb12-6"><a href="#cb12-6"></a></span>
+<span id="cb12-7"><a href="#cb12-7"></a><span class="co"># definir la direccion del repositorio</span></span>
+<span id="cb12-8"><a href="#cb12-8"></a>git remote add origin https<span class="sc">:</span><span class="er">//</span>github.com<span class="sc">/</span>maRce10<span class="sc">/</span>curso_reproducible.git</span></code></pre></div>
+<p> </p>
+<ol start="3" style="list-style-type: decimal">
+<li><strong>Envie solicitudes de adicion a GitHub</strong></li>
+</ol>
+<ul>
+<li>Una vez que se ha trabajado en un proyecto localmente estos cambios
+pueden ser sincronizados con el repositorio en <a
+href="github.com">GitHub</a></li>
+<li><code>git pull</code> actualiza la línea de desarrollo remota con
+actualizaciones de su contraparte local</li>
+<li>el cambio debe estar rastreado y confirmado para poder ser
+sincronizado</li>
+</ul>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="do">## rastrear nuevos cambios</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a>git add .</span>
+<span id="cb13-3"><a href="#cb13-3"></a></span>
+<span id="cb13-4"><a href="#cb13-4"></a><span class="co"># confirmar cambios</span></span>
+<span id="cb13-5"><a href="#cb13-5"></a>git commit <span class="sc">-</span>m <span class="st">&quot;cambio local x&quot;</span></span>
+<span id="cb13-6"><a href="#cb13-6"></a></span>
+<span id="cb13-7"><a href="#cb13-7"></a><span class="co"># enviar la primer solicitud a github</span></span>
+<span id="cb13-8"><a href="#cb13-8"></a>git pull origin master</span>
+<span id="cb13-9"><a href="#cb13-9"></a></span>
+<span id="cb13-10"><a href="#cb13-10"></a><span class="co"># enviar subsiguientes cambios a github </span></span>
+<span id="cb13-11"><a href="#cb13-11"></a>git pull</span></code></pre></div>
+<p> </p>
+<ol start="4" style="list-style-type: decimal">
+<li><strong>Actualizar repositorio local</strong></li>
+</ol>
+<ul>
+<li>Si hay cambios de sus colaboradoras que se han sincronizado con el
+repositorio en <a href="github.com">GitHub</a> estos se pueden
+sincronizar localmente usando <code>git push</code></li>
+<li><code>git push</code> actualiza la línea de desarrollo local con
+actualizaciones de su contraparte remota</li>
+</ul>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># sincronizar cambios remotos la primera vez</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a>git push origin master</span>
+<span id="cb14-3"><a href="#cb14-3"></a></span>
+<span id="cb14-4"><a href="#cb14-4"></a><span class="co"># sincronizar cambios remotos </span></span>
+<span id="cb14-5"><a href="#cb14-5"></a>git push</span></code></pre></div>
+<p> </p>
+<p> </p>
+</div>
+</div>
+<div id="ejercicio-1" class="section level3 alert alert-info">
+<h3>Ejercicio 1</h3>
+<ul>
+<li><p>En su cuenta de <a href="github.com">GitHub</a> cree un nuevo
+repositorio</p></li>
+<li><p>Cree un archivo README de forma remota (en <a
+href="github.com">GitHub</a>)</p></li>
+<li><p>Clone el repositorio locamente</p></li>
+<li><p>Sincronice el repositorio local con el de <a
+href="github.com">GitHub</a></p></li>
+<li><p>Realice cambios localmente (e.g. añada un archivo de texto) y
+envíe estos cambios a <a href="github.com">GitHub</a></p></li>
+</ul>
+</div>
+<p> </p>
+<hr />
+<div id="referencias" class="section level3">
+<h3>Referencias</h3>
+<ul>
+<li>Bryan, J. (2018). Excuse Me, Do You Have a Moment to Talk About
+Version Control? American Statistician, 72(1), 20–27. <a
+href="https://doi.org/10.1080/00031305.2017.1399928"
+class="uri">https://doi.org/10.1080/00031305.2017.1399928</a></li>
+</ul>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

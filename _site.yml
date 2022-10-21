@@ -1,0 +1,51 @@
+name: "Ciencia Reproducible"
+output_dir: "docs"
+output:
+  html_document:
+    css: extra.css
+navbar:
+  title: "Ciencia Reproducible"
+  left:
+    - text: "Manuales"
+      menu:
+      - text: "Compendios de investigación"
+        href: compendios_de_investigacion.html
+      - text: "Reproducibilidad en la taxonomía"
+        href: reproducibilidad_en_taxonómica.html
+      - text: "Programación y reproducibilidad"
+        href: programacion_y_reproducibilidad.html
+      - text: "Control de versiones: git y github"
+        href: intro_a_git_y_github.html
+      # - text: "Reportes dinámicos con Rmarkdown"
+        # href: reportes_dinamicos_con_rmarkdown.html
+      - text: "Artículos en Rmarkdown"
+        href: escribir_articulos_en_rmarkdown.html
+      - text: "Trampas estadísticas"
+        href: trampas_estadisticas.html
+    - text: "Preparación para el curso"
+      href: preparacion_curso.html
+    - text: "Compartir código"
+      href: https://codefile.io/f/XOIzH23KfULuZKyZ1TYT
+    - text: "Tareas"
+      menu:
+      - text: "Tarea 1"
+        href:  
+      - text: "Solución: tarea 1"
+        href:  
+      - text: "Tarea 2"
+        href:  
+      - text: "Solución: tarea 2"
+        href:  
+      - text: "Tarea 3"
+        href:  
+      - text: "Solución: tarea 3"
+        href:  
+      - text: "Tarea 4"
+        href:  
+      - text: "Solución: tarea4"
+        href:  
+    - text: "Programa del curso"
+      href: https://github.com/maRce10/ciencia_reproducible/raw/master/additional_files/2022-10-14_Probl Esp Ecol_15_Herramientas-Practicas-Para-Ciencia-Reproducible.pdf
+    - text: "Instructor"
+      href: instructor.html
+    
