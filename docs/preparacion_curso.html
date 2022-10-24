@@ -11,9 +11,9 @@
 
 
 
-<title>instructor.knit</title>
+<title>preparacion_curso.knit</title>
 
-<script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
@@ -142,15 +142,11 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark the anchor link active (and if it's in a dropdown, also mark that active)
-  var dropdown = menuAnchor.closest('li.dropdown');
-  if (window.bootstrap) { // Bootstrap 4+
-    menuAnchor.addClass('active');
-    dropdown.find('> .dropdown-toggle').addClass('active');
-  } else { // Bootstrap 3
-    menuAnchor.parent().addClass('active');
-    dropdown.addClass('active');
-  }
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -318,40 +314,73 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore"><center>
-Marcelo Araya-Salas
-</center></h1>
 
 </div>
 
 
-<center>
-<img src="images/me.png" alt = "me" width="700" height="100%">
-</center>
 <p> </p>
-<p><font size="4"></p>
-<p>Un ecólogo del comportamiento mas que acabó haciendo mucha
-programación solo para poder hacer bien el análisis de datos. Así que
-ahora estoy bien involucrado en el desarrollo de herramientas
-computacionales para el análisis de datos biológicos (no genéticos),
-principalmente relacionados con el comportamiento animal y la
-bioacústica. Soy el desarrollador de los paquetes de R <a
-href="https://marce10.github.io/warbleR/index.html">warbleR</a> y <a
-href="https://marce10.github.io/Rraven/index.html">Rraven</a> los cuales
-tienen funciones para agilizar el análisis acústico de sonidos de los
-animales, con el objetivo principal de simplificar el uso de R para la
-investigación bioacústica. Más recientemente, he publicado los paquetes
-de R <a href="https://marce10.github.io/baRulho/index.html">baRulho</a>,
-para cuantificar la transmisión y la degradación de la señal acústica,
-<a href="https://marce10.github.io/ohun/index.html">ohun</a>, para
-optimizar la detección automática y <a
-href="https://marce10.github.io/PhenotypeSpace/index.html">PhenotypeSpace</a>
-para cuantificar los espacios de rasgos multidimensionales.
-Recientemente también desarrollé el paquete <a
-href="https://marce10.github.io/sketchy/index.html">sketchy</a> para
-organizar compendios de investigación. Las nuevas funciones, así como
-otros análisis más elaborados, se detallan en mi blog <a
-href="https://marce10.github.io/">Bioacoustics in R</a>.</p>
+<ol style="list-style-type: decimal">
+<li>Instalá R en la computadora que utilizarás durante el curso (<a
+href="https://cran.r-project.org/"
+class="uri">https://cran.r-project.org/</a>). Probablemente ya lo tenés
+instalado, pero intentá actualizarlo si tenés una versión de R &lt;
+4.0.0. Podés encontrar qué versión de R tenés ejecutando esto en la
+consola de R:</li>
+</ol>
+<pre class="r"><code>version$version.string</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Instalá la interfaz de RStudio (<a
+href="https://www.rstudio.com/products/rstudio/download/"
+class="uri">https://www.rstudio.com/products/rstudio/download/</a>,
+elejí la versión gratuita). Es opcional pero se aconseja.</p></li>
+<li><p>Abrí RStudio y seleccioná la pestaña “Tools” y luego “Global
+options” (última opción). Seleccioná la opción “Code”, luego seleccioná
+la casilla de “Soft wrap”.</p></li>
+<li><p>También en Rstudio: Seleccioná la opción “Pane Layout” y mové
+“Source” al panel superior izquierdo y “Console” al panel superior
+derecho. Esta disposición asigna más espacio en la pantalla a los
+paneles más útiles. Dalé “Apply” y “Ok”. Para aquellos que no estén
+familiarizados con RStudio, “Source” es un editor de texto donde se
+escribe el código y donde guardas el código en un archivo físico
+(normalmente en formato .R) y la consola evalúa el código que se envia
+desde el “Source” e imprime los resultados (si los hay). Podés escribir
+código en la consola, pero no se guardará en un archivo físico.</p></li>
+<li><p>Ahora en la consola de R en Rstudio ejecutá el siguiente código
+para instalar los paquetes que estaremos usando durante el
+curso:</p></li>
+</ol>
+<pre class="r"><code>install.packages(&quot;leaflet&quot;)
+install.packages(&quot;remotes&quot;)
+install.packages(&quot;rmarkdown&quot;) 
+install.packages(&quot;knitr&quot;)
+install.packages(&quot;kableExtra&quot;)
+install.packages(&quot;rmdformats&quot;)
+install.packages(&quot;revealjs&quot;)
+install.packages(&quot;rticles&quot;)
+install.packages(&quot;tufte&quot;)
+install.packages(&quot;ggplot2&quot;) 
+install.packages(&quot;lme4&quot;)
+install.packages(&quot;viridis&quot;)
+install.packages(&quot;lmerTest&quot;)
+install.packages(&quot;workflowr&quot;)
+install.packages(&quot;packrat&quot;)
+install.packages(&quot;cowsay&quot;)
+install.packages(&quot;taxize&quot;)
+install.packages(&quot;rgbif&quot;)
+install.packages(&quot;plyr&quot;)
+install.packages(&quot;gridExtra&quot;)
+install.packages(&quot;DAAG&quot;)
+install.packages(&quot;ritis&quot;)
+remotes::install_github(&quot;hadley/emo&quot;)
+remotes::install_github(&quot;maRce10/sketchy&quot;)
+remotes::install_github(&quot;benmarwick/rrtools&quot;)
+remotes::install_github(&quot;CrumpLab/vertical&quot;)
+remotes::install_github(&quot;crsh/papaja&quot;)</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Instale <a href="https://desktop.github.com/">github
+desktop</a></li>
+</ol>
+<p> </p>
 
 
 

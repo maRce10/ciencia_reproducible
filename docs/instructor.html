@@ -13,7 +13,7 @@
 
 <title>instructor.knit</title>
 
-<script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
@@ -142,15 +142,11 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark the anchor link active (and if it's in a dropdown, also mark that active)
-  var dropdown = menuAnchor.closest('li.dropdown');
-  if (window.bootstrap) { // Bootstrap 4+
-    menuAnchor.addClass('active');
-    dropdown.find('> .dropdown-toggle').addClass('active');
-  } else { // Bootstrap 3
-    menuAnchor.parent().addClass('active');
-    dropdown.addClass('active');
-  }
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -331,19 +327,19 @@ Marcelo Araya-Salas
 <p> </p>
 <p><font size="4"></p>
 <p>Un ecólogo del comportamiento mas que acabó haciendo mucha
-programación solo para poder hacer bien el análisis de datos. Así que
-ahora estoy bien involucrado en el desarrollo de herramientas
-computacionales para el análisis de datos biológicos (no genéticos),
-principalmente relacionados con el comportamiento animal y la
-bioacústica. Soy el desarrollador de los paquetes de R <a
+programación solo para poder hacer bien el análisis de datos. Esto me
+llevó a desarrollar herramientas computacionales para el análisis de
+datos biológicos, principalmente relacionados con el comportamiento
+animal, la cuantificación de rasgos complejos y la bioacústica. Soy el
+desarrollador de los paquetes de R <a
 href="https://marce10.github.io/warbleR/index.html">warbleR</a> y <a
 href="https://marce10.github.io/Rraven/index.html">Rraven</a> los cuales
 tienen funciones para agilizar el análisis acústico de sonidos de los
 animales, con el objetivo principal de simplificar el uso de R para la
-investigación bioacústica. Más recientemente, he publicado los paquetes
-de R <a href="https://marce10.github.io/baRulho/index.html">baRulho</a>,
-para cuantificar la transmisión y la degradación de la señal acústica,
-<a href="https://marce10.github.io/ohun/index.html">ohun</a>, para
+investigación bioacústica. También desarrollé los paquetes de R <a
+href="https://marce10.github.io/baRulho/index.html">baRulho</a>, para
+cuantificar la transmisión y la degradación de la señal acústica, <a
+href="https://marce10.github.io/ohun/index.html">ohun</a>, para
 optimizar la detección automática y <a
 href="https://marce10.github.io/PhenotypeSpace/index.html">PhenotypeSpace</a>
 para cuantificar los espacios de rasgos multidimensionales.
