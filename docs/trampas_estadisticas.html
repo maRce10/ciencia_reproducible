@@ -491,7 +491,7 @@ reproducible</b></font>
 Araya-Salas, PhD</a></font>
 </center></h4>
 <h4 class="date"><center>
-“2022-10-23”
+“2022-10-24”
 </center></h4>
 
 </div>
@@ -585,7 +585,7 @@ class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCod
 <span id="cb1-53"><a href="#cb1-53"></a><span class="fu">error1</span>(<span class="at">a =</span> <span class="fl">0.05</span>, <span class="at">N =</span> <span class="dv">1000</span>)</span></code></pre></div>
 <p><img src="trampas_estadisticas_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <pre><code>## Tasa de error tipo 1</code></pre>
-<pre><code>## [1] 0.049</code></pre>
+<pre><code>## [1] 0.048</code></pre>
 <p> </p>
 <style>
 div.ejercicios { background-color:#F5F5DC; border-radius: 5px; padding: 5px}
@@ -710,7 +710,7 @@ Tasa
 interaccion
 </td>
 <td style="text-align:center;">
-0.053
+0.043
 </td>
 </tr>
 <tr>
@@ -718,7 +718,7 @@ interaccion
 trampa
 </td>
 <td style="text-align:center;">
-0.484
+0.476
 </td>
 </tr>
 </tbody>
@@ -1052,10 +1052,10 @@ class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCod
 <span id="cb7-131"><a href="#cb7-131"></a><span class="fu">trampa3</span>(<span class="at">N =</span> <span class="dv">1000</span>)</span></code></pre></div>
 <pre><code>## Comparacion entre tamanios de muestra</code></pre>
 <pre><code>## [[1]]
-##             par        pq        gd
-## 1       error.1 0.0680000 0.0520000
-## 2    R.promedio 0.4581959 0.1480144
-## 3 beta.promedio 0.2605093 0.1656140
+##             par      pq      gd
+## 1       error.1 0.04500 0.05100
+## 2    R.promedio 0.45509 0.16142
+## 3 beta.promedio 0.26912 0.17323
 ## 
 ## [[2]]</code></pre>
 <p><img src="trampas_estadisticas_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
@@ -1142,7 +1142,7 @@ class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCod
 <span id="cb10-44"><a href="#cb10-44"></a>      </span>
 <span id="cb10-45"><a href="#cb10-45"></a><span class="fu">trampa4</span>(<span class="at">ntest =</span> <span class="dv">20</span>, <span class="at">N =</span> <span class="dv">1000</span>)</span></code></pre></div>
 <pre><code>## Tasa de error tipo 1</code></pre>
-<pre><code>## [1] 0.62</code></pre>
+<pre><code>## [1] 0.635</code></pre>
 <div id="ejercicio-6" class="section level3 ejercicios">
 <h3>Ejercicio 6</h3>
 <ol style="list-style-type: decimal">
@@ -1452,45 +1452,104 @@ class="sourceCode numberSource r numberLines lineAnchors"><code class="sourceCod
 ## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.9.0
 ## 
 ## locale:
-##  [1] LC_CTYPE=es_ES.UTF-8       LC_NUMERIC=C              
-##  [3] LC_TIME=es_CR.UTF-8        LC_COLLATE=es_ES.UTF-8    
-##  [5] LC_MONETARY=es_CR.UTF-8    LC_MESSAGES=es_ES.UTF-8   
-##  [7] LC_PAPER=es_CR.UTF-8       LC_NAME=C                 
-##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
-## [11] LC_MEASUREMENT=es_CR.UTF-8 LC_IDENTIFICATION=C       
+##  [1] LC_CTYPE=es_ES.UTF-8      
+##  [2] LC_NUMERIC=C              
+##  [3] LC_TIME=es_CR.UTF-8       
+##  [4] LC_COLLATE=es_ES.UTF-8    
+##  [5] LC_MONETARY=es_CR.UTF-8   
+##  [6] LC_MESSAGES=es_ES.UTF-8   
+##  [7] LC_PAPER=es_CR.UTF-8      
+##  [8] LC_NAME=C                 
+##  [9] LC_ADDRESS=C              
+## [10] LC_TELEPHONE=C            
+## [11] LC_MEASUREMENT=es_CR.UTF-8
+## [12] LC_IDENTIFICATION=C       
 ## 
 ## attached base packages:
-## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## [1] stats     graphics  grDevices utils     datasets 
+## [6] methods   base     
 ## 
 ## other attached packages:
-## [1] DAAG_1.25.4         gridExtra_2.3       lme4_1.1-29        
-## [4] Matrix_1.3-4        ggplot2_3.3.6       kableExtra_1.3.4   
-## [7] knitr_1.39          xaringanExtra_0.7.0 emo_0.0.0.9000     
+##  [1] DAAG_1.25.4         gridExtra_2.3      
+##  [3] lme4_1.1-29         Matrix_1.3-4       
+##  [5] ggplot2_3.3.6       plyr_1.8.7         
+##  [7] rgbif_3.7.3         taxize_0.9.100     
+##  [9] tufte_0.12          rticles_0.24       
+## [11] revealjs_0.9        rmdformats_1.0.4   
+## [13] kableExtra_1.3.4    rmarkdown_2.14     
+## [15] sketchy_1.0.2       remotes_2.4.2      
+## [17] leaflet_2.1.1       knitr_1.39         
+## [19] xaringanExtra_0.7.0 emo_0.0.0.9000     
+## [21] cowsay_0.8.0       
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] Rcpp_1.0.9          svglite_2.1.0       lubridate_1.8.0    
-##  [4] lattice_0.20-44     png_0.1-7           assertthat_0.2.1   
-##  [7] digest_0.6.29       utf8_1.2.2          R6_2.5.1           
-## [10] evaluate_0.15       httr_1.4.3          highr_0.9          
-## [13] pillar_1.8.0        Rdpack_2.4          rlang_1.0.4        
-## [16] uuid_1.1-0          rstudioapi_0.13     minqa_1.2.4        
-## [19] jquerylib_0.1.4     nloptr_2.0.3        rmarkdown_2.14     
-## [22] labeling_0.4.2      splines_4.1.1       webshot_0.5.3      
-## [25] stringr_1.4.0       munsell_0.5.0       compiler_4.1.1     
-## [28] xfun_0.31           pkgconfig_2.0.3     systemfonts_1.0.4  
-## [31] htmltools_0.5.3     tidyselect_1.1.2    tibble_3.1.8       
-## [34] fansi_1.0.3         viridisLite_0.4.0   crayon_1.5.1       
-## [37] dplyr_1.0.9         withr_2.5.0         rbibutils_2.2.9    
-## [40] MASS_7.3-54         grid_4.1.1          nlme_3.1-152       
-## [43] jsonlite_1.8.0      gtable_0.3.0        lifecycle_1.0.1    
-## [46] DBI_1.1.3           magrittr_2.0.3      formatR_1.12       
-## [49] scales_1.2.0        cli_3.3.0           stringi_1.7.8      
-## [52] farver_2.1.1        latticeExtra_0.6-29 xml2_1.3.3         
-## [55] bslib_0.3.1         generics_0.1.2      vctrs_0.4.1        
-## [58] boot_1.3-28         RColorBrewer_1.1-3  tools_4.1.1        
-## [61] glue_1.6.2          purrr_0.3.4         jpeg_0.1-9         
-## [64] fastmap_1.1.0       yaml_2.3.5          colorspace_2.0-3   
-## [67] rvest_1.0.2         sass_0.4.1</code></pre>
+##   [1] uuid_1.1-0          workflowr_1.7.0    
+##   [3] systemfonts_1.0.4   lazyeval_0.2.2     
+##   [5] splines_4.1.1       crosstalk_1.2.0    
+##   [7] usethis_2.1.6       urltools_1.7.3     
+##   [9] digest_0.6.29       foreach_1.5.2      
+##  [11] htmltools_0.5.3     rsconnect_0.8.26   
+##  [13] fansi_1.0.3         magrittr_2.0.3     
+##  [15] memoise_2.0.1       vertical_0.1.0.0000
+##  [17] svglite_2.1.0       prettyunits_1.1.1  
+##  [19] jpeg_0.1-9          colorspace_2.0-3   
+##  [21] rvest_1.0.2         rbibutils_2.2.9    
+##  [23] xfun_0.31           dplyr_1.0.9        
+##  [25] callr_3.7.0         crayon_1.5.1       
+##  [27] jsonlite_1.8.0      zoo_1.8-10         
+##  [29] iterators_1.0.14    ape_5.6-2          
+##  [31] glue_1.6.2          gtable_0.3.0       
+##  [33] emmeans_1.7.4-1     webshot_0.5.3      
+##  [35] pkgbuild_1.3.1      scales_1.2.0       
+##  [37] oai_0.3.2           mvtnorm_1.1-3      
+##  [39] solrium_1.2.0       DBI_1.1.3          
+##  [41] Rcpp_1.0.9          viridisLite_0.4.0  
+##  [43] xtable_1.8-4        bold_1.2.0         
+##  [45] clisymbols_1.2.0    datawizard_0.4.1   
+##  [47] htmlwidgets_1.5.4   httr_1.4.3         
+##  [49] papaja_0.1.1        RColorBrewer_1.1-3 
+##  [51] ellipsis_0.3.2      farver_2.1.1       
+##  [53] pkgconfig_2.0.3     reshape_0.8.9      
+##  [55] sass_0.4.1          utf8_1.2.2         
+##  [57] here_1.0.1          conditionz_0.1.0   
+##  [59] crul_1.2.0          labeling_0.4.2     
+##  [61] tidyselect_1.1.2    rlang_1.0.4        
+##  [63] later_1.3.0         effectsize_0.7.0   
+##  [65] munsell_0.5.0       tools_4.1.1        
+##  [67] cachem_1.0.6        fortunes_1.5-4     
+##  [69] cli_3.3.0           generics_0.1.2     
+##  [71] tinylabels_0.2.3    devtools_2.4.3     
+##  [73] evaluate_0.15       stringr_1.4.0      
+##  [75] fastmap_1.1.0       yaml_2.3.5         
+##  [77] processx_3.6.1      fs_1.5.2           
+##  [79] purrr_0.3.4         ritis_1.0.0        
+##  [81] packrat_0.8.0       rrtools_0.1.5      
+##  [83] nlme_3.1-152        whisker_0.4        
+##  [85] formatR_1.12        xml2_1.3.3         
+##  [87] brio_1.1.3          compiler_4.1.1     
+##  [89] rstudioapi_0.13     png_0.1-7          
+##  [91] curl_4.3.2          testthat_3.1.4     
+##  [93] tibble_3.1.8        bslib_0.3.1        
+##  [95] stringi_1.7.8       highr_0.9          
+##  [97] ps_1.7.1            parameters_0.18.1  
+##  [99] desc_1.4.1          lattice_0.20-44    
+## [101] nloptr_2.0.3        vctrs_0.4.1        
+## [103] pillar_1.8.0        lifecycle_1.0.1    
+## [105] rmsfact_0.0.3       Rdpack_2.4         
+## [107] triebeard_0.3.0     jquerylib_0.1.4    
+## [109] estimability_1.3    data.table_1.14.2  
+## [111] insight_0.17.1      httpuv_1.6.5       
+## [113] latticeExtra_0.6-29 R6_2.5.1           
+## [115] bookdown_0.27       promises_1.2.0.1   
+## [117] sessioninfo_1.2.2   codetools_0.2-18   
+## [119] boot_1.3-28         MASS_7.3-54        
+## [121] assertthat_0.2.1    pkgload_1.2.4      
+## [123] rprojroot_2.0.3     withr_2.5.0        
+## [125] httpcode_0.3.0      bayestestR_0.12.1  
+## [127] parallel_4.1.1      grid_4.1.1         
+## [129] minqa_1.2.4         coda_0.19-4        
+## [131] git2r_0.30.1        getPass_0.2-2      
+## [133] lubridate_1.8.0</code></pre>
 </div>
 </div>
 

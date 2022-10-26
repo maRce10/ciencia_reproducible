@@ -766,7 +766,7 @@ knitr::include_graphics("./images/rproj2.png")
 Los compendios de investigación son estructuras de carpetas pre-definidas que permiten seguir un orden lógico e intuitivo para organizar los archivos usados y generados en un análisis de datos de un proyecto de investigación. El paquete [sketchy](https://marce10.github.io/sketchy/) genera estos compendios, permitiendo al usuario seleccionar entre una gama de compendios comunes en la comunidad científica. Este ejemplo crea el compendio básico (uno de los 14 que vienen con el paquete):
 
 
-```{r}
+```{r, error=TRUE}
 
 path <- tempdir()
 
